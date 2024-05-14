@@ -1,5 +1,5 @@
 import { posts } from "#site/content";
-import { MDXContent } from "@/components/MDXComponents";
+import { MDXContent } from "@/components/mdx-components";
 import { notFound } from "next/navigation";
 interface PostPageProps {
 	params: {
