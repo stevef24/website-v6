@@ -1,10 +1,11 @@
 "use client";
 
-import { siteConfig } from "@/app/config/site";
+import { siteConfig } from "@/config/site";
 import Link from "next/link";
 import Icons from "./Icons";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
+import { ModeToggle } from "./ModeToggle";
 
 const MainNav = () => {
 	const pathName = usePathname();

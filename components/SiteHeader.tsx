@@ -1,10 +1,11 @@
-import { siteConfig } from "@/app/config/site";
+import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import Icons from "./Icons";
 import MainNav from "./MainNav";
 import MobileNav from "./MobileNav";
+import { ModeToggle } from "./ModeToggle";
 
 function SiteHeader() {
 	return (
@@ -39,10 +40,12 @@ function SiteHeader() {
 									"w-10 px-0 hidden sm:inline-flex"
 								)}
 							>
-								<Icons.linkedIn className="w-6 h-6" />
+								<Icons.linkedIn className="w-7 h-7" />
 								<span className="sr-only">linkedIn</span>
 							</div>
 						</Link>
+						<ModeToggle />
+
 						<MobileNav />
 					</nav>
 				</div>

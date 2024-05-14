@@ -1,6 +1,6 @@
 export const siteConfig = {
 	name: "Stav Fernandes",
-	url: "https://stavfernandes.dev",
+	url: "http://localhost:3000",
 	description: "Personal website and blog of Stav Fernandes",
 	author: "Stav Fernandes",
 	links: {

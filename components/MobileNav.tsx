@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import { Menu } from "lucide-react";
 import Link, { LinkProps } from "next/link";
 import Icons from "./Icons";
-import { siteConfig } from "@/app/config/site";
+import { siteConfig } from "@/config/site";
 import { useRouter } from "next/navigation";
 
 interface MobileNavProps extends LinkProps {
