@@ -4,6 +4,7 @@ import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import Icons from "./Icons";
 import MainNav from "./MainNav";
+import MobileNav from "./MobileNav";
 
 function SiteHeader() {
 	return (
@@ -20,7 +21,7 @@ function SiteHeader() {
 							<div
 								className={cn(
 									buttonVariants({ variant: "ghost" }),
-									"w-10 px-0"
+									"w-10 px-0 hidden sm:inline-flex"
 								)}
 							>
 								<Icons.github className="w-6 h-6" />
@@ -35,13 +36,14 @@ function SiteHeader() {
 							<div
 								className={cn(
 									buttonVariants({ variant: "ghost" }),
-									"w-10 px-0"
+									"w-10 px-0 hidden sm:inline-flex"
 								)}
 							>
 								<Icons.linkedIn className="w-6 h-6" />
 								<span className="sr-only">linkedIn</span>
 							</div>
 						</Link>
+						<MobileNav />
 					</nav>
 				</div>
 			</div>

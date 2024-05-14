@@ -21,7 +21,7 @@ const MainNav = () => {
 			<Link
 				href="blog"
 				className={cn(
-					"text-sm font-md transition-colors hover:text-primary",
+					"text-sm font-md transition-colors hover:text-primary hidden sm:inline-block",
 					pathName == "/blog" ? "text-forground" : "text-forground/60"
 				)}
 			>
@@ -30,7 +30,7 @@ const MainNav = () => {
 			<Link
 				href="about"
 				className={cn(
-					"text-sm font-md transition-colors hover:text-primary",
+					"text-sm font-md transition-colors hover:text-primary hidden sm:inline-block",
 					pathName == "/about" ? "text-forground" : "text-forground/60"
 				)}
 			>
