@@ -44,9 +44,11 @@ function SiteHeader() {
 								<span className="sr-only">linkedIn</span>
 							</div>
 						</Link>
-						<ModeToggle />
+						<div className="flex gap-1">
+							<ModeToggle />
 
-						<MobileNav />
+							<MobileNav />
+						</div>
 					</nav>
 				</div>
 			</div>

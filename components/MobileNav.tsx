@@ -59,7 +59,6 @@ function MobileLink({
 	children,
 	onOpenChange,
 	className,
-
 	...props
 }: MobileNavProps) {
 	const router = useRouter();

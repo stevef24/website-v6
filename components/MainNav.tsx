@@ -5,7 +5,6 @@ import Link from "next/link";
 import Icons from "./Icons";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
-import { ModeToggle } from "./ModeToggle";
 
 const MainNav = () => {
 	const pathName = usePathname();
@@ -20,7 +19,7 @@ const MainNav = () => {
 				<span className="font-bold text-lg">{siteConfig.name}</span>
 			</Link>
 			<Link
-				href="blog"
+				href="/blog"
 				className={cn(
 					"text-sm font-md transition-colors hover:text-primary hidden sm:inline-block",
 					pathName == "/blog" ? "text-forground" : "text-forground/60"
@@ -29,7 +28,7 @@ const MainNav = () => {
 				Blog
 			</Link>
 			<Link
-				href="about"
+				href="/about"
 				className={cn(
 					"text-sm font-md transition-colors hover:text-primary hidden sm:inline-block",
 					pathName == "/about" ? "text-forground" : "text-forground/60"

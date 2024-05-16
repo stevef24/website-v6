@@ -13,7 +13,9 @@ async function getPostFromParmas(params: PostPageProps["params"]) {
 	return post;
 }
 
-export async function getStaticParams(): Promise<PostPageProps["params"][]> {
+export async function generateStaticParams(): Promise<
+	PostPageProps["params"][]
+> {
 	return posts.map((post) => ({ slug: post.slugAsParams.split("/") }));
 }
 
@@ -25,7 +27,7 @@ const Post = async ({ params: { slug } }: PostPageProps) => {
 	}
 
 	return (
-		<article className="contaienr py-6 prose dark:prose-invert max-w-3xl mx-auto">
+		<article className="contaienr py-6 max-sm:px-4 prose dark:prose-invert max-w-3xl mx-auto">
 			<h1 className="mb-2">{post.title}</h1>
 			{post.description ? (
 				<p className="text-xl mt-0  text-muted-foreground">
