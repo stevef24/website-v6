@@ -11,7 +11,7 @@ const MainNav = () => {
 	return (
 		<nav className="flex items-center space-x-4 lg:space-x-6 text-center">
 			<Link
-				href={siteConfig.links.personalSite}
+				href={"/"}
 				rel="noreferrer"
 				className="mr-6 flex items-center space-x-2"
 			>

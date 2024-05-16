@@ -3,10 +3,26 @@ import { posts } from "#site/content";
 import PostItem from "@/components/PostItem";
 import { sortPosts } from "@/lib/utils";
 import "@/styles/mdx.css";
+import { QueryPagination } from "@/components/ui/QueryPagination";
 
-const BlogPage = () => {
+const POSTS_PER_PAGE = 10;
+
+interface BlogPageProps {
+	searchParams: {
+		page?: string;
+	};
+}
+
+const BlogPage = async ({ searchParams }: BlogPageProps) => {
+	const currentPage = Number(searchParams.page) || 1;
 	const sortedPosts = sortPosts(posts.filter((post) => post.published));
-	const displayPosts = sortedPosts;
+	const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
+
+	const displayPosts = sortedPosts.slice(
+		POSTS_PER_PAGE * (currentPage - 1),
+		POSTS_PER_PAGE * currentPage
+	);
+
 	return (
 		<div className="container max-w-4xl py-6 lg:py-10">
 			<div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
@@ -36,6 +52,7 @@ const BlogPage = () => {
 			) : (
 				<p>Nothing to see here</p>
 			)}
+			<QueryPagination totalPages={totalPages} className="mt-10" />
 		</div>
 	);
 };
