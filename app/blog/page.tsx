@@ -2,6 +2,7 @@ import React from "react";
 import { posts } from "#site/content";
 import PostItem from "@/components/PostItem";
 import { sortPosts } from "@/lib/utils";
+import "@/styles/mdx.css";
 
 const BlogPage = () => {
 	const sortedPosts = sortPosts(posts.filter((post) => post.published));
