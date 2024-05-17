@@ -5,14 +5,20 @@ import { buttonVariants } from "./ui/button";
 import Icons from "./Icons";
 import MainNav from "./MainNav";
 import MobileNav from "./MobileNav";
-import { ModeToggle } from "./ModeToggle";
 
 function SiteHeader() {
 	return (
-		<header className="sticky top-0 w-full border-b border-border  bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-			<div className="container flex h-14 max-w-screen-2xl items-center">
+		<header className="sticky z-10 top-0 bg-background/95 backdrop-blur-2xl supports-[backdrop-filter]:bg-background/60">
+			<div className="container flex h-14 max-w-screen-2xl justify-between items-center">
+				<Link
+					href={"/"}
+					rel="noreferrer"
+					className="mr-6 flex items-center space-x-2"
+				>
+					<Icons.logo className="w-10 h-10" />
+				</Link>
 				<MainNav />
-				<div className="flex flex-1 items-center justify-end space-x-2">
+				<div className="flex  items-center justify-end space-x-2 ">
 					<nav className="flex items-center">
 						<Link
 							href={siteConfig.links.github}
@@ -40,15 +46,11 @@ function SiteHeader() {
 									"w-10 px-0 hidden sm:inline-flex"
 								)}
 							>
-								<Icons.linkedIn className="w-7 h-7" />
+								<Icons.linkedIn className="w-6 h-6" />
 								<span className="sr-only">linkedIn</span>
 							</div>
 						</Link>
-						<div className="flex gap-1">
-							<ModeToggle />
-
-							<MobileNav />
-						</div>
+						<MobileNav />
 					</nav>
 				</div>
 			</div>

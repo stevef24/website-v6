@@ -26,7 +26,7 @@ export default function RootLayout({
 				)}
 			>
 				<ThemeProvider attribute="class" defaultTheme="system">
-					<div className="relative min-h-dvh flex flex-col bg-background">
+					<div className="relative min-h-dvh  flex flex-col bg-background">
 						<SiteHeader />
 						<main className="flex-1">{children}</main>
 					</div>

@@ -18,6 +18,13 @@ const config = {
 				"2xl": "1400px",
 			},
 		},
+		backgroundImage: {
+			"primary-gradient":
+				"linear-gradient(to bottom, #B59CF8, #F5F2FF 48%, #B59CF8 68%, #8273A9 100%)",
+			frost:
+				"repeating-linear-gradient(to right, rgba(255,255,255,.04) 0%, rgba(0,0,0,.39) 49%, rgba(255,255,255,.27) 100%)",
+		},
+
 		extend: {
 			fontFamily: {
 				sans: ["var(--font-sans)", ...fontFamily.sans],
@@ -32,6 +39,7 @@ const config = {
 					DEFAULT: "hsl(var(--primary))",
 					foreground: "hsl(var(--primary-foreground))",
 				},
+				violet: "#3b3c98",
 				secondary: {
 					DEFAULT: "hsl(var(--secondary))",
 					foreground: "hsl(var(--secondary-foreground))",
