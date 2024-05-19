@@ -1,8 +1,6 @@
 "use client";
 
-import { siteConfig } from "@/config/site";
 import Link from "next/link";
-import Icons from "./Icons";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 
@@ -14,8 +12,10 @@ const MainNav = () => {
 				<Link
 					href="/"
 					className={cn(
-						"text-md font-semibold transition-colors hover:text-primary hidden sm:inline-block",
-						pathName == "/" ? "text-primary" : "text-forground/60"
+						"text-md font-md transition-colors hover:text-primary hidden sm:inline-block",
+						pathName == "/"
+							? "text-primary   font-semibold "
+							: "text-forground/60"
 					)}
 				>
 					Home
@@ -23,8 +23,10 @@ const MainNav = () => {
 				<Link
 					href="/blog"
 					className={cn(
-						"text-md font-semibold transition-colors hover:text-primary hidden sm:inline-block",
-						pathName == "/blog" ? "text-primary" : "text-forground/60"
+						"text-md font-md transition-colors hover:text-primary hidden sm:inline-block",
+						pathName == "/blog"
+							? "text-primary   font-semibold"
+							: "text-forground/60"
 					)}
 				>
 					Blog
@@ -32,8 +34,10 @@ const MainNav = () => {
 				<Link
 					href="/experiments"
 					className={cn(
-						"text-md font-semibold transition-colors hover:text-primary hidden sm:inline-block",
-						pathName == "/experiments" ? "text-primary" : "text-forground/60"
+						"text-md font-md transition-colors hover:text-primary hidden sm:inline-block",
+						pathName == "/experiments"
+							? "text-primary  font-semibold"
+							: "text-forground/60"
 					)}
 				>
 					Experiments
@@ -41,8 +45,10 @@ const MainNav = () => {
 				<Link
 					href="/about"
 					className={cn(
-						"text-md font-semibold transition-colors hover:text-primary hidden sm:inline-block",
-						pathName == "/about" ? "text-primary" : "text-forground/60"
+						"text-md font-md transition-colors hover:text-primary hidden sm:inline-block",
+						pathName == "/about"
+							? "text-primary  font-semibold"
+							: "text-forground/60"
 					)}
 				>
 					About

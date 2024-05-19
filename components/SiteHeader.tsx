@@ -8,8 +8,8 @@ import MobileNav from "./MobileNav";
 
 function SiteHeader() {
 	return (
-		<header className="sticky z-10 top-0 bg-background/95 backdrop-blur-2xl supports-[backdrop-filter]:bg-background/60">
-			<div className="container flex h-14 max-w-screen-2xl justify-between items-center">
+		<header className="sticky z-10 top-0  backdrop-blur supports-[backdrop-filter]:bg-background/20">
+			<div className="container flex h-24 max-w-screen-2xl justify-between items-center">
 				<Link
 					href={"/"}
 					rel="noreferrer"
