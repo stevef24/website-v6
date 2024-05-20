@@ -1,33 +1,37 @@
 import React from "react";
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from "./ui/card";
-import Link from "next/link";
-import Image from "next/image";
+
+import ProjectCard, { CardProps } from "./ProjectCard";
+
+const projects: CardProps[] = [
+	{
+		title: "Dev Overflow",
+		description:
+			"A Stack Overflow clone for developers to ask questions and get answers.",
+		github: "https://github.com/stevef24/Next13-Stackoverflow",
+		linkLink: "https://next13-stackoverflow-gj99kv6ln-stevef24.vercel.app/",
+	},
+	{
+		title: "Lugh AI",
+		description:
+			"AIO AI image enhacer using multiple AI models to edit your image.",
+		github: "https://github.com/stevef24/AI-Saas/tree/main/lughai",
+		linkLink: "",
+	},
+	{
+		title: "City Canvas",
+		description:
+			"Find the best art places to visit in your city with City Canvas.",
+		github: "https://github.com/Nayem59/CityCanvas/tree/main/CityCanvas",
+		linkLink: "",
+	},
+];
 
 const Projects = () => {
 	return (
-		<div>
-			<Card className="rounded-2xl max-w-[400px] hover:border-primary cursor-pointer hover:bg-accent ">
-				<CardHeader>
-					<Image src={""} alt={""} />
-					<CardTitle>Project1</CardTitle>
-				</CardHeader>
-				<CardContent>
-					<CardDescription>
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-						error, vero porro maiores voluptatum placeat mollitia explicabo
-						dolore, tempora culpa molestias adipisci cupiditate accusamus
-						fugiat.
-					</CardDescription>
-				</CardContent>
-				<CardFooter>{/* <Link></Link> */}</CardFooter>
-			</Card>
+		<div className="flex justify-center items-center flex-wrap gap-10">
+			{projects.map((project, index) => (
+				<ProjectCard key={index} {...project} />
+			))}
 		</div>
 	);
 };

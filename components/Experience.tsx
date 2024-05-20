@@ -3,83 +3,89 @@ import WorkExperienceSection from "./WorkExperienceSection";
 const data = [
 	{
 		companyName: "Nationwide Building Society",
-		dateFrom: "2023",
+		dateFrom: "Jun 2023",
 		dateTo: "Present",
 		role: "Frontend Developer",
 		roleDescription:
-			"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam et impedit, laudantium aperiam modi quasi dignissimos recusandae, ducimus excepturi illum voluptatum praesentium at, omnis incidunt illo sunt expedita alias dolor error dolorem beatae maiores minus asperiores? Odit expedita explicabo, minus corporis veritatis soluta doloremque aperiam cum eaque culpa molestias fuga.",
+			"Enhanced UI/UX for the mortgage journey, implemented the redemption feature, and maintained reliable user interfaces. Led knowledge-sharing sessions to foster skill development among junior developers.",
 		location: "Remote",
-		tech: ["javascript", "react", "node", "css", "html"],
+		tech: [
+			"JavaScript",
+			"React",
+			"Node",
+			"CSS",
+			"HTML",
+			"Recoil",
+			"Next.js",
+			"Typescript",
+			"Node.js",
+			"Express",
+			"Jest/Supertest",
+			"Git",
+			"Figma",
+			"Jenkins",
+			"Cucumber",
+			"React Testing Library",
+		],
 	},
 	{
 		companyName: "Northcoders",
 		dateFrom: "Jan 2023",
-		dateTo: "apr 2023",
+		dateTo: "May 2023",
 		role: "Trainee Software Engineer",
-		roleDescription: `	Completed an intensive JavaScript-focused Coding Bootcamp covering
-		programming, full-stack and front-end web development using
-		React.js, back-end web development, and more. Gained hands-on
-		experience in Git, HTML5, CSS, OOP, and Node.js. Developed a high
-		level of proficiency in various aspects of web development through
-		practical application.`,
+		roleDescription:
+			"Completed an intensive 13-week bootcamp focused on JavaScript and full-stack development. Worked in a team to build full-stack and mobile projects, gaining hands-on experience in web technologies.",
 		location: "Manchester",
-		tech: [],
+		tech: [
+			"React",
+			"Figma",
+			"Framer Motion",
+			"React Native",
+			"Node.js",
+			"Express",
+			"PostgreSQL",
+			"Jest/Supertest",
+		],
 	},
 	{
 		companyName: "Career break",
 		dateFrom: "Aug 2022",
-		dateTo: "dec 2022",
+		dateTo: "Dec 2022",
 		role: "Travel",
-		roleDescription: `Trained in Mixed Martial Arts & Muay Thai in Thailand and
-		Indonesia, immersed in diverse cultures whilst meeting new people,
-		expanding interests & developing interpersonal skills. Gained
-		self-confidence, resilience, focus and
-		stayed physically fit. This experience enhanced personal and
-		professional growth, also providing valuable skills applicable to
-		various aspects of life`,
+		roleDescription:
+			"Trained in Mixed Martial Arts and Muay Thai across Thailand and Indonesia. Gained cultural awareness, developed interpersonal skills, and enhanced personal growth through travel and training.",
 		location: "South East Asia",
 		tech: [],
 	},
 	{
 		companyName: "Aviva Investors",
-		dateFrom: "Jul 2020",
+		dateFrom: "Jul 2019",
 		dateTo: "Jul 2022",
 		role: "Sales Enablement Associate",
-		roleDescription: `Conducted analysis of large qualitative and quantitative datasets,
-							utilizing various third-party databases including Morningstar
-							Direct and Lipper. Prepared monthly peer analysis and fund
-							snapshots with commentary for sales teams and investment
-							specialists regarding fund performance. Conducted independent
-							reviews of investment opportunities across all asset classes,
-							including deep dives into promising prospects. Offered a full-time
-							position at Aviva Investors upon completion of the graduate
-							scheme.`,
-		location: "London",
-		tech: [],
-	},
-	{
-		companyName: "Aviva Investors",
-		dateFrom: "Jul 2020",
-		dateTo: "Jul 2022",
-		role: "Multi-asset Investment Specialist",
-		roleDescription: `Supported day-to-day operations for the flagship fund, AIMS,
-		managing £6B in AUM. Collaborated with directors and portfolio
-		managers to communicate investment processes, portfolio positions,
-		and performance to clients and consultants. Conducted analysis for
-		client requests, including fund metrics and ESG integration.
-		Developed key procedures and research materials, including
-		documentation, models, and presentations. Completed the Investment
-		Management Certificate qualification in January 2020..`,
+		roleDescription:
+			"Conducted market data analysis and created detailed fund reports for sales teams and investment specialists. Delivered insights through peer analysis, supporting effective communication of investment strategies.",
 		location: "London",
 		tech: [],
 	},
 ];
+
 const Experience = () => {
 	return (
 		<section>
 			<ul className="space-y-3">
 				{data.map(
-					({ companyName, role, roleDescription, location, tech }, index) => (
+					(
+						{
+							companyName,
+							role,
+							roleDescription,
+							location,
+							tech,
+							dateFrom,
+							dateTo,
+						},
+						index
+					) => (
 						<WorkExperienceSection
 							companyName={companyName}
 							role={role}
@@ -87,6 +93,9 @@ const Experience = () => {
 							location={location}
 							tech={tech}
 							key={index}
+							index={index}
+							dateFrom={dateFrom}
+							dateTo={dateTo}
 						/>
 					)
 				)}

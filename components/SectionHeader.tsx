@@ -9,7 +9,7 @@ const SectionHeader = ({ title, direction }: SectionHeaderProps) => {
 	return (
 		<div
 			className={cn(
-				"flex mb-10",
+				"flex my-10",
 				direction === "row" ? "flex-row" : "flex-row-reverse"
 			)}
 		>

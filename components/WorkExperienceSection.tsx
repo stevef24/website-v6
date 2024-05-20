@@ -1,9 +1,15 @@
+"use client";
+import { motion } from "framer-motion";
+
 type WorkExperienceSectionProps = {
 	companyName?: string;
 	role: string;
 	roleDescription: string;
 	location: string;
 	tech?: string[];
+	index: number;
+	dateFrom: string;
+	dateTo: string;
 };
 
 const WorkExperienceSection = ({
@@ -12,9 +18,17 @@ const WorkExperienceSection = ({
 	roleDescription,
 	location,
 	tech,
+	dateFrom,
+	dateTo,
 }: WorkExperienceSectionProps) => {
 	return (
-		<section className="mb-4">
+		<motion.div
+			className="mb-4"
+			initial={{ opacity: 0, y: 20 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true, amount: "all" }}
+			transition={{ duration: 0.3 }}
+		>
 			<li className="px-4 py-5 duration-150 hover:border-primary hover:rounded-xl hover:bg-accent">
 				<div className="border-none ">
 					<div className="flex items-center gap-x-3">
@@ -50,7 +64,7 @@ const WorkExperienceSection = ({
 									fill="#9CA3AF"
 								/>
 							</svg>
-							{role}
+							{`${dateFrom}-${dateTo}`}
 						</span>
 						<span className="flex items-center gap-2 text-muted-foreground">
 							<svg
@@ -69,7 +83,7 @@ const WorkExperienceSection = ({
 							{location}
 						</span>
 					</div>
-					<div>
+					<div className="flex justify-start items-start flex-wrap gap-y-1">
 						{tech?.map((tech, index) => (
 							<span
 								key={`tech-${tech}+${index}`}
@@ -81,7 +95,7 @@ const WorkExperienceSection = ({
 					</div>
 				</div>
 			</li>
-		</section>
+		</motion.div>
 	);
 };
 
