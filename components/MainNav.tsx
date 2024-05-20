@@ -42,17 +42,6 @@ const MainNav = () => {
 				>
 					Experiments
 				</Link>
-				<Link
-					href="/about"
-					className={cn(
-						"text-md font-md transition-colors hover:text-primary hidden sm:inline-block",
-						pathName == "/about"
-							? "text-primary  font-semibold"
-							: "text-forground/60"
-					)}
-				>
-					About
-				</Link>
 			</div>
 		</nav>
 	);

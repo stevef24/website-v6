@@ -14,7 +14,7 @@ const Contact = () => {
 			className="grid place-items-center my-12"
 			viewport={{ once: true, amount: "all" }}
 		>
-			<div className="bg-accent w-[500px] h-[300px] rounded-xl flex-col flex  justify-center items-center">
+			<div className="bg-accent max-sm:w-full w-[500px] h-[300px] rounded-xl flex-col flex  justify-center items-center">
 				<h2 className="text-3xl md:text-5xl font-black text-end">
 					Contact
 					<span className="text-primary">.</span>

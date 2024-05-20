@@ -2,6 +2,7 @@
 
 import { useGetPointerMovement } from "@/hooks/GetPointerMove";
 import { motion } from "framer-motion";
+import { Button } from "./ui/button";
 
 export default function Home() {
 	const pointerProps = useGetPointerMovement(true);
@@ -23,7 +24,7 @@ export default function Home() {
 					<motion.h1
 						initial={{ scale: 0.7, opacity: 0 }}
 						whileInView={{ scale: 1, opacity: 1 }}
-						className="max-sm:text-[10vw] text-[8vw]  font-semibold leading-snug antialiased"
+						className="max-sm:text-[10vw] text-[8vw]  font-black leading-snug antialiased"
 					>
 						Stav Fernandes
 					</motion.h1>
@@ -31,7 +32,7 @@ export default function Home() {
 						initial={{ scale: 0.7, opacity: 0 }}
 						whileInView={{ scale: 1, opacity: 1 }}
 						transition={{ delay: 0.4 }}
-						className="text-white max-sm:text-[6vw]  text-[2vw] text-muted-foreground  "
+						className="text-white max-sm:text-[6vw] font-semibold  text-[2vw] text-muted-foreground  leading-snug antialiased"
 					>
 						Frontend Developer
 					</motion.h2>

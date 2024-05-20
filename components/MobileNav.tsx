@@ -20,31 +20,43 @@ const MobileNav = () => {
 	return (
 		<Sheet open={open} onOpenChange={setOpen}>
 			<SheetTrigger asChild>
-				<Button variant="outline" className="w-10 px-0 sm:hidden">
-					<Menu className="h-5 w-5" />
+				<Button variant="ghost" className="w-10 px-0 sm:hidden ">
+					<Menu className="h-8 w-8" />
 					<span className="sr-only">Toggle Theme</span>
 				</Button>
 			</SheetTrigger>
-			<SheetContent side="right">
+			<SheetContent side="right" className="flex flex-col">
 				<MobileLink href={"/"} className="flex items-center">
-					<Icons.logo className="mr-2 h-6 w-6" />
-					<span className="font-bold">{siteConfig.name}</span>
+					<Icons.logo className="mr-2 h-8 w-8" />
 				</MobileLink>
 				<div className="flex flex-col gap-3 mt-3">
-					<MobileLink href="/blog" onOpenChange={setOpen}>
+					<MobileLink
+						href="/blog"
+						onOpenChange={setOpen}
+						className="text-2xl font-semibold  hover:text-primary transition-colors"
+					>
 						Blog
 					</MobileLink>
-					<MobileLink href="/about" onOpenChange={setOpen}>
-						About
+					<MobileLink
+						href="/experiments"
+						onOpenChange={setOpen}
+						className="text-2xl font-semibold  hover:text-primary transition-colors"
+					>
+						Experiments
 					</MobileLink>
-
-					<Link target="_blank" rel="noreferrer" href={siteConfig.links.github}>
+					<Link
+						target="_blank"
+						rel="noreferrer"
+						className="text-2xl font-semibold  hover:text-primary transition-colors"
+						href={siteConfig.links.github}
+					>
 						Github
 					</Link>
 					<Link
 						target="_blank"
 						rel="noreferrer"
 						href={siteConfig.links.linkedIn}
+						className="text-2xl font-semibold  hover:text-primary transition-colors"
 					>
 						LinkedIn
 					</Link>
