@@ -7,8 +7,12 @@ export default function About() {
 	return (
 		<div>
 			<motion.h3
-				initial={{ opacity: 0 }}
-				whileInView={{ opacity: 1 }}
+				initial={{ opacity: 0, y: 20 }}
+				whileInView={{
+					opacity: 1,
+					y: 0,
+					transition: { duration: 0.5, ease: "easeOut" },
+				}}
 				transition={{ duration: 0.7 }}
 				viewport={{ once: true, amount: "all" }}
 				className="scroll-m-20 text-2xl font-semibold tracking-tight text-center"
@@ -16,8 +20,12 @@ export default function About() {
 				Hi 👋🏾 I'm <span className="text-primary">stav</span>
 			</motion.h3>
 			<motion.p
-				initial={{ opacity: 0 }}
-				whileInView={{ opacity: 1 }}
+				initial={{ opacity: 0, y: 20 }}
+				whileInView={{
+					opacity: 1,
+					y: 0,
+					transition: { duration: 0.5, ease: "easeOut" },
+				}}
 				transition={{ duration: 0.7 }}
 				viewport={{ once: true, amount: "all" }}
 				className="leading-7 [&:not(:first-child)]:mt-6 text-center"

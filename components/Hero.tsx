@@ -23,14 +23,28 @@ export default function Home() {
 				<div className=" mix-blend-screen [grid-area:1/1] flex-col items-center flex antialiased">
 					<motion.h1
 						initial={{ scale: 0.7, opacity: 0 }}
-						whileInView={{ scale: 1, opacity: 1 }}
+						whileInView={{
+							scale: 1,
+							opacity: 1,
+							transition: { duration: 0.5, ease: "easeOut" },
+						}}
+						viewport={{
+							once: true,
+						}}
 						className="max-sm:text-[10vw] text-[8vw]  font-black leading-snug antialiased"
 					>
 						Stav Fernandes
 					</motion.h1>
 					<motion.h2
 						initial={{ scale: 0.7, opacity: 0 }}
-						whileInView={{ scale: 1, opacity: 1 }}
+						whileInView={{
+							scale: 1,
+							opacity: 1,
+							transition: { duration: 0.5, ease: "easeOut" },
+						}}
+						viewport={{
+							once: true,
+						}}
 						transition={{ delay: 0.4 }}
 						className="text-white max-sm:text-[6vw] font-semibold  text-[2vw] text-muted-foreground  leading-snug antialiased"
 					>

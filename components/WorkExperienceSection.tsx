@@ -25,7 +25,11 @@ const WorkExperienceSection = ({
 		<motion.div
 			className="mb-4"
 			initial={{ opacity: 0, y: 20 }}
-			whileInView={{ opacity: 1, y: 0 }}
+			whileInView={{
+				opacity: 1,
+				y: 0,
+				transition: { duration: 0.5, ease: "easeOut" },
+			}}
 			viewport={{ once: true, amount: "all" }}
 			transition={{ duration: 0.3 }}
 		>
@@ -83,11 +87,11 @@ const WorkExperienceSection = ({
 							{location}
 						</span>
 					</div>
-					<div className="flex justify-start items-start flex-wrap gap-y-1">
+					<div className="flex  justify-start items-start flex-wrap gap-y-2">
 						{tech?.map((tech, index) => (
 							<span
 								key={`tech-${tech}+${index}`}
-								className="px-2 py-1 mr-2 text-xs text-foreground font-medium uppercase border rounded-xl bg-primary "
+								className="px-2 py-1  mr-2 text-xs text-foreground font-medium uppercase border rounded-xl bg-primary "
 							>
 								{tech}
 							</span>

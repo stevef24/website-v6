@@ -8,7 +8,10 @@ import React from "react";
 const Contact = () => {
 	return (
 		<motion.div
-			whileInView={{ opacity: 1 }}
+			whileInView={{
+				opacity: 1,
+				transition: { duration: 0.5, ease: "easeOut" },
+			}}
 			initial={{ opacity: 0 }}
 			transition={{ duration: 0.7 }}
 			className="grid place-items-center my-12"

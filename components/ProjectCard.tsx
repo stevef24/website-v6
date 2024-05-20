@@ -14,8 +14,12 @@ export type CardProps = {
 const Card = ({ title, description, github, linkLink }: CardProps) => {
 	return (
 		<motion.div
-			initial={{ opacity: 0 }}
-			whileInView={{ opacity: 1 }}
+			initial={{ opacity: 0, y: 20 }}
+			whileInView={{
+				opacity: 1,
+				y: 0,
+				transition: { duration: 0.5, ease: "easeOut" },
+			}}
 			whileHover="hover"
 			transition={{
 				duration: 0.7,
