@@ -20,9 +20,9 @@ const config = {
 		},
 		backgroundImage: {
 			"primary-gradient":
-				"linear-gradient(90deg, hsla(52, 82%, 52%, 1) 0%, hsla(1, 92%, 47%, 1) 100%)",
+				"linear-gradient(90deg, hsla(52, 82%, 52%, 1) 0%, hsla(1, 92%, 47%, 0.5) 50%)",
 			frost:
-				"repeating-linear-gradient(to right, rgba(255,255,255,.04) 0%, rgba(0,0,0,.39) 49%, rgba(255,255,255,.27) 100%)",
+				"repeating-linear-gradient(to right, rgba(255,255,255,.04) 0%, rgba(0,0,0,.39) 90%, rgba(255,255,255,.27) 10%)",
 		},
 
 		extend: {

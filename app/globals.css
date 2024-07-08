@@ -6,8 +6,8 @@
 	.circular-fadeout {
 		mask-image: radial-gradient(
 			ellipse at center,
-			rgb(0, 0, 0) 20%,
-			rgba(0, 0, 0, 0) 70%
+			rgb(0, 0, 0) 10%,
+			rgba(0, 0, 0, 0) 100%
 		);
 		mask-size: cover;
 	}
