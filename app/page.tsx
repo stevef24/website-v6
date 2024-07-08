@@ -2,7 +2,7 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Experience from "@/components/Experience";
 import Hero from "@/components/Hero";
-import Projects from "@/components/Projects";
+import ProjectHoverCard from "@/components/ProjectHoverCard";
 import SectionHeader from "@/components/SectionHeader";
 
 export default function Home() {
@@ -16,7 +16,12 @@ export default function Home() {
 				</div>
 				<div>
 					<SectionHeader title={"Projects"} direction={"row-reverse"} />
-					<Projects />
+					{/* <Projects /> */}
+					<div className="flex justify-around items-center flex-wrap gap-2 bg-fixed ">
+						<ProjectHoverCard />
+						<ProjectHoverCard />
+						<ProjectHoverCard />
+					</div>
 				</div>
 				<SectionHeader title={"Experience"} direction={"row"} />
 				<Experience />

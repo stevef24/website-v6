@@ -2,7 +2,6 @@
 
 import { useGetPointerMovement } from "@/hooks/GetPointerMove";
 import { motion } from "framer-motion";
-import { Button } from "./ui/button";
 
 export default function Home() {
 	const pointerProps = useGetPointerMovement(true);
