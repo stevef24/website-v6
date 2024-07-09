@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import Navbar from "@/components/ui/navbar";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const fontSans = FontSans({
+	subsets: ["latin"],
+	variable: "--font-sans",
+});
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -21,11 +26,14 @@ export default function RootLayout({
 			<body
 				className={cn(
 					"min-h-screen bg-background font-sans antialiased",
-					inter.variable
+					fontSans.variable
 				)}
 			>
-				<ThemeProvider attribute="class" defaultTheme="dark">
-					<div></div>
+				<ThemeProvider attribute="class" defaultTheme="light">
+					<TooltipProvider delayDuration={0}>
+						{children}
+						<Navbar />
+					</TooltipProvider>
 				</ThemeProvider>
 			</body>
 		</html>
