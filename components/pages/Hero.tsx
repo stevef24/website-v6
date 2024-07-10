@@ -1,80 +1,69 @@
 /* eslint-disable react/no-unescaped-entities */
-"use client";
-
-import { useGetPointerMovement } from "@/hooks/GetPointerMove";
 import Image from "next/image";
 import { Button } from "../ui/button";
 
 export default function Home() {
-	const pointerProps = useGetPointerMovement(true);
-
 	return (
-		<div className="min-h-screen bg-background font-sans">
-			<div className=" grid h-full min-h-screen w-full place-items-center ">
-				<div className=" flex-col items-center flex antialiased">
-					<div className="w-48 h-48 rounded-full  mb-4 ">
-						<Image
-							src="/avatar.png"
-							alt="Profile"
-							width={220}
-							height={220}
-							className="object-fit"
-						/>
-					</div>
-
-					<h2 className="text-[min(5vw,4rem)] font-semibold mb-2  ">
-						Hi, I'm Stav 👋🏾
-					</h2>
-
-					<h1 className="text-[min(10vw,6rem)] font-bold text-center my-10 leading-none">
-						Building digital
-						<br />
-						products, brands, and
-						<br />
-						experience.
-					</h1>
-
-					<svg width="0" height="0">
-						<defs>
-							<mask id="mask" x="0" y="0" width="100%" height="100%">
-								<rect x="0" y="0" width="100%" height="100%" fill="#fff" />
-								<text
-									x="50%"
-									y="50%"
-									fontFamily="Arial"
-									fontSize="24"
-									fill="#000"
-									textAnchor="middle"
-									dominantBaseline="middle"
-								>
-									Stav Fernandes
-								</text>
-							</mask>
-						</defs>
-					</svg>
-
-					<div className="text-center mb-6">
-						<p className="mb-1">
-							a Product Designer and Visual Developer in SF.
-						</p>
-						<p>
-							I specialize in
-							<span className="relative">
-								<span
-									className="absolute inset-0 bg-orange-500"
-									style={{ mask: "url(#mask)" }}
-								></span>
-								<span className="relative z-10">
-									UI/UX Design, Responsive Web Design,
-								</span>
-							</span>
-						</p>
-						<p>and Visual Development.</p>
-					</div>
-
-					<Button className="bg-primary rounded-full">Lets Connect!</Button>
+		<div className="min-h-screen bg-background font-sans flex items-center justify-center px-4 sm:px-6 lg:px-8">
+			<div className="max-w-4xl mx-auto text-center">
+				<div className="mb-8 sm:mb-12">
+					<Image
+						src="/avatar.png"
+						alt="Profile"
+						width={180}
+						height={180}
+						className="mx-auto rounded-full object-cover"
+					/>
 				</div>
+
+				<h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-4 sm:mb-6">
+					Hi, I'm Stav 👋🏾
+				</h2>
+
+				<h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight sm:leading-tight md:leading-tight lg:leading-tight mb-8 sm:mb-10">
+					Building digital products, brands, and experience.
+				</h1>
+
+				<div className="mb-8 sm:mb-10 text-base sm:text-lg md:text-xl">
+					<p className="mb-2">a Product Designer and Visual Developer in SF.</p>
+					<p className="mb-2">
+						I specialize in
+						<span className="relative">
+							<span
+								className="absolute inset-0 bg-primary opacity-20"
+								style={{ mask: "url(#mask)" }}
+							></span>
+							<span className="relative z-10 font-medium">
+								UI/UX Design, Responsive Web Design,
+							</span>
+						</span>
+					</p>
+					<p>and Visual Development.</p>
+				</div>
+
+				<Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6 py-3 text-lg">
+					Let's Connect!
+				</Button>
 			</div>
+
+			<svg width="0" height="0" aria-hidden="true">
+				<defs>
+					<mask id="mask" x="0" y="0" width="100%" height="100%">
+						<rect x="0" y="0" width="100%" height="100%" fill="#fff" />
+						<text
+							x="50%"
+							y="50%"
+							fontFamily="Arial"
+							fontSize="24"
+							fill="#000"
+							textAnchor="middle"
+							dominantBaseline="middle"
+						>
+							Stav Fernandes
+						</text>
+					</mask>
+				</defs>
+			</svg>
 		</div>
 	);
 }

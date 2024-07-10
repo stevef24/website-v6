@@ -1,9 +1,9 @@
 import React from "react";
 import { posts } from "#site/content";
-import PostItem from "@/components/PostItem";
 import { sortPosts } from "@/lib/utils";
 import "@/styles/mdx.css";
 import { QueryPagination } from "@/components/ui/QueryPagination";
+import PostItem from "@/components/ui/PostItem";
 
 const POSTS_PER_PAGE = 10;
 

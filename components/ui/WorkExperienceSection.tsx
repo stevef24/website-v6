@@ -27,7 +27,7 @@ const WorkExperienceSection = memo(
 		return (
 			<BlurFade inView>
 				<li className="group p-6 rounded-xl transition-all duration-300 hover:bg-accent hover:shadow-md">
-					<div className="space-y-6">
+					<div className="space-y-4">
 						<div className="flex items-center gap-x-4">
 							<div className="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
 								<BriefcaseIcon
