@@ -1,0 +1,131 @@
+---
+title: "Setting Up a Next.js App with ESLint, Prettier, and Tailwind CSS"
+description: Learn how to set up a Next.js project with ESLint, Prettier, and Tailwind CSS using npm. This guide walks you through linting, code formatting, and maintaining consistency.
+date: 2024-09-17
+tags: ["code", "nextjs", "eslint", "prettier", "tailwind"]
+published: true
+---
+
+When starting any project, it’s essential to lay the groundwork with solid tooling. This setup helps ensure that your code is consistent, easy to read, and less prone to errors. By configuring tools like ESLint for linting and Prettier for code formatting right from the beginning, you establish a reliable foundation that will scale as your project grows. It also helps when collaborating with other developers by enforcing consistent code styles and reducing potential errors early in the development process.
+
+In this guide, we’ll walk through setting up a new Next.js application with ESLint, Prettier, and Tailwind CSS using `npm`. We'll cover linting, code formatting, and keeping everything consistent with best practices.
+
+## 1. **Creating an Example App**
+
+Let’s start by creating a new Next.js app named `eslint-prettier`. We’ll use `npm` as our package manager:
+
+```bash
+npx create-next-app@latest eslint-prettier
+```
+
+During the setup, choose the following options:
+
+- TypeScript
+- ESLint
+- Tailwind CSS
+- Use the `src` directory for your source files
+
+Leave the default import alias as is to keep things simple for this guide.
+
+## 2. **Linting with ESLint**
+
+Next.js comes with ESLint configured right out of the box. It uses the `next/core-web-vitals` config, which ensures that your project follows strict best practices:
+
+```json
+// inside .eslintrc.json
+{
+	"extends": "next/core-web-vitals"
+}
+```
+
+To check if your code adheres to the linting rules, run the following command in your terminal:
+
+```bash
+npm run lint
+```
+
+Since we’ve just set up the app, you shouldn’t see any linting errors. But this will help keep your code in shape as you continue building.
+
+## 3. **Adding Prettier for Code Formatting**
+
+Prettier is a code formatter that automatically enforces consistent styling. Let's install it along with some related packages:
+
+```bash
+npm install eslint-config-prettier prettier prettier-plugin-tailwindcss --save-dev
+```
+
+Here’s what these packages do:
+
+- **`eslint-config-prettier`**: Ensures ESLint and Prettier work together smoothly by disabling conflicting ESLint rules.
+- **`prettier`**: The code formatter itself.
+- **`prettier-plugin-tailwindcss`**: Automatically sorts Tailwind CSS classes in your code.
+
+Next, update your `.eslintrc.json` file to include Prettier:
+
+```json
+// inside .eslintrc.json
+{
+	"extends": ["next/core-web-vitals", "prettier"]
+}
+```
+
+This configuration prevents conflicts between ESLint and Prettier.
+
+## 4. **Configuring Prettier**
+
+To fine-tune Prettier’s behavior, create a `.prettierrc.json` file in the root of your project:
+
+```json
+{
+	"trailingComma": "es5",
+	"semi": true,
+	"tabWidth": 2,
+	"singleQuote": false,
+	"jsxSingleQuote": false,
+	"plugins": ["prettier-plugin-tailwindcss"]
+}
+```
+
+Here’s what each option does:
+
+- **`trailingComma`**: Allows trailing commas.
+- **`semi`**: Enforces semicolons.
+- **`tabWidth`**: Sets indentation to two spaces.
+- **`singleQuote`** and **`jsxSingleQuote`**: Set to `false` to use double quotes throughout your code.
+- **`plugins`**: Includes the Tailwind CSS plugin to sort Tailwind classes automatically.
+
+With this in place, Prettier will automatically format your code every time you save a file. If you’re using VSCode, consider enabling autosave for extra convenience.
+
+## 5. **Testing Prettier and Tailwind Integration**
+
+To see the integration in action, open the `page.tsx` file that includes Tailwind CSS classes. When you save the file, Prettier will reorder the classes based on Tailwind's recommended order.
+
+## 6. **Using Additional Prettier Plugins**
+
+You can enhance your Prettier setup further by using additional plugins. A common plugin is the `sort-imports` plugin, which automatically organizes your import statements. To install it:
+
+```bash
+npm install @ianvs/prettier-plugin-sort-imports --save-dev
+```
+
+Then, update your `.prettierrc.json` file to include this plugin:
+
+```json
+// inside .prettierrc.json
+{
+	"plugins": ["prettier-plugin-tailwindcss", "sort-imports"],
+	"importOrder": [
+		"^(react/(.*)$)|^(react$)",
+		"",
+		"<THIRD_PARTY_MODULES>",
+		"",
+		"^[./]"
+	]
+}
+```
+
+This configuration sorts React imports first, then third-party modules, and finally local imports, separating them with blank lines for clarity.
+
+## 7. **Establishing Consistent Standards**
+
+By setting up ESLint and Prettier early in your project, you can maintain clean, consistent code across your entire team. While there are many ESLint rules and Prettier configurations to choose from, the key is to find a setup that works for your project and stick to it.

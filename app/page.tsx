@@ -1,6 +1,7 @@
 import About from "@/components/pages/About";
 import Hero from "@/components/pages/Hero";
 import Projects from "@/components/pages/Projects";
+import Values from "@/components/pages/Values";
 import BlurFade from "@/components/ui/Blur";
 import Contact from "@/components/ui/Contact";
 import Experience from "@/components/ui/Experience";
@@ -17,9 +18,11 @@ export default function Home() {
 				<About />
 				<SectionHeader title="Experience" direction="row-reverse" />
 				<Experience />
-				<SectionHeader title="Projects" direction="row" />
+				<SectionHeader title="Values" direction="row" />
+				<Values />
+				<SectionHeader title="Projects" direction="row-reverse" />
 				<Projects />
-				<SectionHeader title="Contact" direction="row-reverse" />
+				<SectionHeader title="Contact" direction="row" />
 				<Contact />
 			</main>
 		</BlurFade>

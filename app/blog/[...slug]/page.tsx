@@ -1,6 +1,7 @@
 import { posts } from "#site/content";
-import { MDXContent } from "@/components/mdx-components";
 import { notFound } from "next/navigation";
+import { MDXContent } from "@/components/ui/mdx-components";
+
 interface PostPageProps {
 	params: {
 		slug: string[];
