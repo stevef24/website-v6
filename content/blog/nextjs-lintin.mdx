@@ -12,8 +12,8 @@ published: true
 ## Editor-Grade Highlighting
 
 <span className="mix-blend-plus-lighter text-zinc-400/80">
-  Enjoy the accuracy and granularity of VS Code's syntax highlighting engine and
-  the popularity of its themes ecosystem — use any VS Code theme you want!
+	Enjoy the accuracy and granularity of VS Code's syntax highlighting engine and
+	the popularity of its themes ecosystem — use any VS Code theme you want!
 </span>
 
 ## Line Numbers and Line Highlighting
@@ -24,14 +24,14 @@ Draw attention to a particular line of code.
 import { useFloating } from "@floating-ui/react";
 
 function MyComponent() {
-  const { refs, floatingStyles } = useFloating();
+	const { refs, floatingStyles } = useFloating();
 
-  return (
-    <>
-      <div ref={refs.setReference} />
-      <div ref={refs.setFloating} style={floatingStyles} />
-    </>
-  );
+	return (
+		<>
+			<div ref={refs.setReference} />
+			<div ref={refs.setFloating} style={floatingStyles} />
+		</>
+	);
 }
 ```
 
@@ -43,14 +43,14 @@ Draw attention to a particular word or series of characters.
 import { useFloating } from "@floating-ui/react";
 
 function MyComponent() {
-  const { refs, floatingStyles } = useFloating();
+	const { refs, floatingStyles } = useFloating();
 
-  return (
-    <>
-      <div ref={refs.setReference} />
-      <div ref={refs.setFloating} style={floatingStyles} />
-    </>
-  );
+	return (
+		<>
+			<div ref={refs.setReference} />
+			<div ref={refs.setFloating} style={floatingStyles} />
+		</>
+	);
 }
 ```
 
@@ -75,29 +75,29 @@ Inline ANSI: `> Local: [0;36mhttp://localhost:[0;36;1m3000[0;36m/[0m{:ansi}`
 
 ```js showLineNumbers {2-4} title="isEven.js" /console/ caption="Im a caption"
 function isEven(number) {
-  if (number === 1) {
-    return false;
-  } else if (number === 2) {
-    return true;
-  } else if (number === 3) {
-    return false;
-  } else if (number === 4) {
-    return true;
-  } else if (number === 5) {
-    return false;
-  } else if (number === 6) {
-    return true;
-  } else if (number === 7) {
-    return false;
-  } else if (number === 8) {
-    return true;
-  } else if (number === 9) {
-    return false;
-  } else if (number === 10) {
-    return true;
-  } else {
-    return "Number is not between 1 and 10.";
-  }
+	if (number === 1) {
+		return false;
+	} else if (number === 2) {
+		return true;
+	} else if (number === 3) {
+		return false;
+	} else if (number === 4) {
+		return true;
+	} else if (number === 5) {
+		return false;
+	} else if (number === 6) {
+		return true;
+	} else if (number === 7) {
+		return false;
+	} else if (number === 8) {
+		return true;
+	} else if (number === 9) {
+		return false;
+	} else if (number === 10) {
+		return true;
+	} else {
+		return "Number is not between 1 and 10.";
+	}
 }
 
 // Example usage:

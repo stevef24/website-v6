@@ -1,6 +1,6 @@
 import React, { ElementType } from "react";
 
-enum Variant {
+export enum Variant {
 	h1 = "h1",
 	h2 = "h2",
 	h3 = "h3",
@@ -30,14 +30,14 @@ const tags: Record<Variant, ElementType> = {
 };
 
 const sizes: Record<Variant, string> = {
-	h1: "text-5xl font-bold sm:text-4xl",
-	h2: "text-4xl font-bold sm:text-3xl",
-	h3: "text-3xl font-bold sm:text-2xl",
-	h4: "text-2xl font-bold sm:text-1xl",
-	h5: "text-xl font-bold sm:text-lg",
-	body: "text-lg sm:text-md",
-	"body-small": "text-md sm:text-sm",
-	small: "text-sm sm:text-xs",
+	h1: "text-7xl font-bold max-sm:text-4xl",
+	h2: "text-6xl font-bold max-sm:text-3xl",
+	h3: "text-3xl font-bold max-sm:text-2xl",
+	h4: "text-2xl font-bold max-sm:text-1xl",
+	h5: "text-xl font-bold max-sm:text-lg",
+	body: "text-lg max-sm:text-md",
+	"body-small": "text-md max-sm:text-sm",
+	small: "text-sm max-sm:text-xs",
 };
 
 export const Typography = ({ variant, children, className, as }: Props) => {
