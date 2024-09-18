@@ -32,11 +32,11 @@ export default function ProjectHoverCard({
 
 	return (
 		<div
-			className="min-w-[320px] w-[400px] group relative max-w-md rounded-xl border border-white/10 bg-background px-8 py-16 shadow-2xl"
+			className="min-w-[320px] w-[400px] group relative max-w-md rounded-xl border border-gray-200 bg-background px-8 py-16"
 			onMouseMove={handleMouseMove}
 		>
 			<motion.div
-				className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
+				className="pointer-events-none absolute -inset-px rounded-xl  opacity-0 transition duration-300 group-hover:opacity-100"
 				style={{
 					background: useMotionTemplate`
             radial-gradient(
@@ -47,16 +47,18 @@ export default function ProjectHoverCard({
           `,
 				}}
 			/>
-			<div>
+			<div className="relative z-10">
 				<h3 className="text-base font-semibold leading-7 text-primary">
 					{byline}
 				</h3>
 				<div className="mt-2 flex items-center gap-x-2">
-					<h2 className="text-5xl font-bold tracking-tight text-white">
+					<h2 className="text-5xl font-bold tracking-tight text-foreground">
 						{title}
 					</h2>
 				</div>
-				<p className="mt-6 text-base leading-7 text-gray-300">{description}</p>
+				<p className="mt-6 text-base leading-7 text-muted-foreground">
+					{description}
+				</p>
 				<div className="mt-4">
 					<ul className="mt-2 flex flex-wrap gap-2">
 						{technologies.map((tech, index) => (

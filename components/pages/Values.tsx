@@ -17,9 +17,14 @@ const Values = () => {
 				{values.map((value, index) => (
 					<div key={index}>
 						<BlurFade inView>
-							<Typography variant={Variant.h2} className="font-bold text-white">
-								<span className="text-orange-500">{value}</span> in Action:
-								Driving Success Through Our Core Principles
+							<Typography
+								variant={Variant.h2}
+								className="font-bold text-foreground dark:text-white"
+							>
+								<span className="text-orange-500">{value}</span>{" "}
+								<span className="text-foreground/80 dark:text-white/80">
+									in Action: Driving Success Through Our Core Principles
+								</span>
 							</Typography>
 						</BlurFade>
 					</div>
