@@ -1,71 +1,64 @@
 import WorkExperienceSection from "./WorkExperienceSection";
 
-const data = [
+// Define the type for each work experience item
+type WorkExperience = {
+	companyName: string;
+	dateFrom: string;
+	dateTo: string;
+	role: string;
+	roleDescription: string;
+	location: string;
+	tech: string[];
+};
+
+// Use the new type for the data array
+const workExperience: WorkExperience[] = [
 	{
 		companyName: "Nationwide Building Society",
-		dateFrom: "Jun 2023",
+		dateFrom: "June 2023",
 		dateTo: "Present",
-		role: "Frontend Developer",
+		role: "Software Engineer",
 		roleDescription:
-			"Enhanced UI/UX for the mortgage journey, implemented the redemption feature, and maintained reliable user interfaces. Led knowledge-sharing sessions to foster skill development among junior developers.",
-		location: "Remote",
+			"I’m currently working on improving the user experience for mortgage-related products. My main focus is creating scalable, user-friendly UIs, and collaborating with different teams to bring new features to life. I’ve had the chance to guide new developers and keep things running smoothly using modern tech stacks like React, Tailwind CSS, and AWS.",
+		location: "London, UK",
 		tech: [
-			"JavaScript",
 			"React",
-			"Node",
-			"CSS",
-			"HTML",
-			"Recoil",
 			"Next.js",
-			"Typescript",
-			"Node.js",
-			"Express",
-			"Jest/Supertest",
-			"Git",
-			"Figma",
+			"Tailwind CSS",
+			"TypeScript",
+			"AWS Services",
 			"Jenkins",
-			"Cucumber",
-			"React Testing Library",
 		],
 	},
 	{
 		companyName: "Northcoders",
-		dateFrom: "Jan 2023",
+		dateFrom: "January 2023",
 		dateTo: "May 2023",
-		role: "Trainee Software Engineer",
+		role: "Software Developer",
 		roleDescription:
-			"Completed an intensive 13-week bootcamp focused on JavaScript and full-stack development. Worked in a team to build full-stack and mobile projects, gaining hands-on experience in web technologies.",
-		location: "Manchester",
-		tech: [
-			"React",
-			"Figma",
-			"Framer Motion",
-			"React Native",
-			"Node.js",
-			"Express",
-			"PostgreSQL",
-			"Jest/Supertest",
-		],
+			"Gained hands-on experience in a full-stack environment, collaborating with a team to develop both web and mobile applications. I worked across different stages of development, from planning to deployment, and played a key role in launching a mobile app. It was a great opportunity to sharpen my teamwork and technical skills in a dynamic project setting.",
+		location: "Manchester, UK",
+		tech: ["JavaScript", "React", "Node.js", "PostgreSQL", "MongoDB", "Trello"],
 	},
 	{
-		companyName: "Career break",
-		dateFrom: "Aug 2022",
-		dateTo: "Dec 2022",
-		role: "Travel",
+		companyName: "Freelance Web Developer",
+		dateFrom: "July 2022",
+		dateTo: "December 2022",
+		role: "Web Developer",
 		roleDescription:
-			"Trained in Mixed Martial Arts and Muay Thai across Thailand and Indonesia. Gained cultural awareness, developed interpersonal skills, and enhanced personal growth through travel and training.",
-		location: "South East Asia",
-		tech: [],
+			"While traveling through Asia, I transitioned into web development by building websites for various clients. I focused on front-end development and picked up valuable skills like communication and adaptability while working remotely in different time zones.",
+		location: "Remote, Asia",
+		tech: ["HTML", "CSS", "Webflow", "JavaScript"],
 	},
 	{
 		companyName: "Aviva Investors",
-		dateFrom: "Jul 2019",
-		dateTo: "Jul 2022",
-		role: "Sales Enablement Associate",
+		dateFrom: "July 2019",
+		dateTo: "June 2022",
+		role: "Sales Enablement Associate & Multi-asset Investment Specialist",
 		roleDescription:
-			"Conducted market data analysis and created detailed fund reports for sales teams and investment specialists. Delivered insights through peer analysis, supporting effective communication of investment strategies.",
-		location: "London",
-		tech: [],
+			"In this role, I helped make sense of investment data and worked closely with sales teams and clients. I used my analytical and presentation skills to deliver insights and even automated some tasks to improve efficiency. It was a great mix of data, finance, and communication.",
+		location: "London, UK",
+		tech: ["Python", "Excel"],
 	},
 ];
 
@@ -73,7 +66,7 @@ const Experience = () => {
 	return (
 		<section>
 			<ul className="space-y-3">
-				{data.map(
+				{workExperience.map(
 					(
 						{
 							companyName,

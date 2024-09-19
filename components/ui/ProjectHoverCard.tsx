@@ -32,7 +32,7 @@ export default function ProjectHoverCard({
 
 	return (
 		<div
-			className="min-w-[320px] w-[400px] group relative max-w-md rounded-xl border border-gray-200 bg-background px-8 py-16"
+			className="min-w-[320px] w-[400px] group relative max-w-md rounded-xl border light:border-gray-200 bg-background px-8 py-16"
 			onMouseMove={handleMouseMove}
 		>
 			<motion.div
@@ -41,8 +41,8 @@ export default function ProjectHoverCard({
 					background: useMotionTemplate`
             radial-gradient(
               500px circle at ${mouseX}px ${mouseY}px,
-              rgb(234, 88, 13, 0.15),
-              transparent 80%
+              rgb(234, 88, 13, 0.10),
+              transparent 60%
             )
           `,
 				}}

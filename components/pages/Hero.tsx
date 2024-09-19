@@ -7,6 +7,9 @@ export default function Home() {
 		<div className="min-h-screen bg-background font-sans flex items-center justify-center px-4 sm:px-6 lg:px-8">
 			<div className="max-w-4xl mx-auto text-center">
 				<div className="mb-8 sm:mb-12">
+					<h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-4 sm:mb-6">
+						Hi, I'm Stav 👋🏾
+					</h2>
 					<Image
 						src="/avatar.png"
 						alt="Profile"
@@ -16,12 +19,8 @@ export default function Home() {
 					/>
 				</div>
 
-				<h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-4 sm:mb-6">
-					Hi, I'm Stav 👋🏾
-				</h2>
-
 				<h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight sm:leading-tight md:leading-tight lg:leading-tight mb-8 sm:mb-10">
-					Building digital products, brands, and experience.
+					Frontend Software Engineer
 				</h1>
 
 				<div className="mb-8 sm:mb-10 text-base sm:text-lg md:text-xl">
