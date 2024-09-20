@@ -161,31 +161,6 @@ export const DATA = {
 
 	dummyProjects: [
 		{
-			id: "1",
-			title: "EcoTrack",
-			byline: "Sustainable Living App",
-			description:
-				"An app that helps users track and reduce their carbon footprint through daily lifestyle choices.",
-			technologies: ["React Native", "Node.js", "MongoDB", "Express", "Redux"],
-			githubUrl: "https://github.com/username/ecotrack",
-			liveUrl: "https://ecotrack-app.com",
-		},
-		{
-			id: "2",
-			title: "CodeCollab",
-			byline: "Real-time Coding Platform",
-			description:
-				"A collaborative coding environment that allows developers to code together in real-time with integrated video chat.",
-			technologies: [
-				"Vue.js",
-				"Firebase",
-				"WebRTC",
-				"Quill.js",
-				"Tailwind CSS",
-			],
-			githubUrl: "https://github.com/username/codecollab",
-		},
-		{
 			id: "3",
 			title: "HealthHub",
 			byline: "Personalized Health Dashboard",
