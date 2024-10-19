@@ -32,7 +32,7 @@ export default function ProjectHoverCard({
 
 	return (
 		<div
-			className="min-w-[320px] w-[400px] group relative max-w-md rounded-xl border light:border-gray-200 bg-background px-8 py-16"
+			className="min-h-[500px] min-w-[320px] w-[400px] group relative max-w-md rounded-xl border light:border-gray-200 bg-background px-8 py-16"
 			onMouseMove={handleMouseMove}
 		>
 			<motion.div
@@ -59,7 +59,7 @@ export default function ProjectHoverCard({
 				<p className="mt-6 text-base leading-7 text-muted-foreground">
 					{description}
 				</p>
-				<div className="mt-4">
+				<div className="my-4 min-g-[100px] ">
 					<ul className="mt-2 flex flex-wrap gap-2">
 						{technologies.map((tech, index) => (
 							<li
