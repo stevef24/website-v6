@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import GridPattern from "../ui/grid-pattern";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export default function Component() {
 	const [mounted, setMounted] = useState(false);
@@ -71,7 +72,7 @@ export default function Component() {
 					transition={{ duration: 0.8, delay: 0.6 }}
 					className="inline-flex bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 py-4 text-lg font-medium"
 				>
-					Contact Me
+					<Link href="/#contact">Contact Me</Link>
 				</motion.button>
 			</motion.div>
 		</div>

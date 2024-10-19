@@ -16,6 +16,7 @@ const Contact = () => {
 			transition={{ duration: 0.7 }}
 			className="grid place-items-center my-12"
 			viewport={{ once: true, amount: "all" }}
+			id="contact"
 		>
 			<div className="bg-accent max-sm:w-full w-[500px] h-[300px] rounded-xl flex-col flex  justify-center items-center">
 				<h2 className="text-3xl md:text-5xl font-black text-end">
