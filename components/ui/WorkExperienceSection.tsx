@@ -26,15 +26,9 @@ const WorkExperienceSection = memo(
 	}: WorkExperienceSectionProps) => {
 		return (
 			<BlurFade inView>
-				<li className="group p-6 rounded-xl transition-all duration-300 hover:bg-accent hover:shadow-md">
+				<li className="group p-6 rounded-xl transition-all duration-300 dark:hover:bg-accent dark:hover:shadow-md hover:bg-accent/50 shadow-none">
 					<div className="space-y-4">
 						<div className="flex items-center gap-x-4">
-							<div className="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-								<BriefcaseIcon
-									className="w-8 h-8 text-primary"
-									aria-hidden="true"
-								/>
-							</div>
 							<div>
 								<h3 className="text-xl font-bold text-primary mb-1">{role}</h3>
 								{companyName && (
