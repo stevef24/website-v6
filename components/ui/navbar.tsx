@@ -69,7 +69,9 @@ export default function Navbar() {
 					<DockIcon>
 						<Tooltip>
 							<TooltipTrigger asChild>
-								<ModeToggle />
+								<div className="size-12 flex items-center justify-center">
+									<ModeToggle className="size-full" />
+								</div>
 							</TooltipTrigger>
 							<TooltipContent>
 								<p>Theme</p>
