@@ -32,7 +32,7 @@ export default function ProjectHoverCard({
 
 	return (
 		<div
-			className="min-h-[500px] min-w-[320px] w-[400px] group relative max-w-md rounded-xl border light:border-gray-200 bg-background px-8 py-16"
+			className="min-h-[500px] min-w-[320px] w-[380px] group relative max-w-md rounded-xl border light:border-gray-200 bg-background px-8 py-16"
 			onMouseMove={handleMouseMove}
 		>
 			<motion.div

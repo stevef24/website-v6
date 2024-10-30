@@ -1,19 +1,10 @@
 "use client";
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import GridPattern from "../ui/grid-pattern";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 export default function Component() {
-	const [mounted, setMounted] = useState(false);
-
-	useEffect(() => {
-		setMounted(true);
-	}, []);
-
-	if (!mounted) return null;
-
 	return (
 		<div className="relative min-h-screen bg-background font-sans flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
 			<GridPattern
@@ -32,7 +23,7 @@ export default function Component() {
 					[15, 10],
 				]}
 				className={cn(
-					"[mask-image:radial-gradient(600px_circle_at_center,hsl(var(--primary)),transparent)]",
+					"[mask-image:radial-gradient(500px_circle_at_center,hsl(var(--primary)),transparent)]",
 					"inset-x-0 inset-y-[-30%] h-[160%] skew-y-12"
 				)}
 			/>
@@ -40,7 +31,7 @@ export default function Component() {
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.8 }}
-				className="relative z-10 max-w-4xl mx-auto text-center space-y-8 sm:space-y-10 md:space-y-12"
+				className="relative z-10 max-w-4xl mx-auto text-center space-y-8 min-h-[500px]  sm:space-y-10 md:space-y-12"
 			>
 				<h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight sm:leading-tight md:leading-tight lg:leading-tight">
 					Stav Fernandes
@@ -49,7 +40,7 @@ export default function Component() {
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8, delay: 0.2 }}
-					className="text-2xl sm:text-3xl md:text-4xl font-semibold"
+					className="text-2xl sm:text-3xl md:text-4xl font-semibold text-primary"
 				>
 					Full Stack Software Engineer
 				</motion.h2>
@@ -66,14 +57,27 @@ export default function Component() {
 					</p>
 				</motion.div>
 
-				<motion.button
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.8, delay: 0.6 }}
-					className="inline-flex bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 py-4 text-lg font-medium"
-				>
-					<Link href="/#contact">Contact Me</Link>
-				</motion.button>
+				<div className="">
+					<motion.button
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.8, delay: 0.6 }}
+						className="mt-8 bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 py-4 text-lg font-medium"
+					>
+						<Link
+							href="/#contact"
+							scroll={false}
+							onClick={(e) => {
+								e.preventDefault();
+								document.getElementById("contact")?.scrollIntoView({
+									behavior: "smooth",
+								});
+							}}
+						>
+							Contact Me
+						</Link>
+					</motion.button>
+				</div>
 			</motion.div>
 		</div>
 	);

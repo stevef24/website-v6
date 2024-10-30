@@ -26,7 +26,7 @@ const WorkExperienceSection = memo(
 	}: WorkExperienceSectionProps) => {
 		return (
 			<BlurFade inView>
-				<li className="group p-6 rounded-xl transition-all duration-300 dark:hover:bg-accent dark:hover:shadow-md hover:bg-accent/50 shadow-none">
+				<li className="group p-6 rounded-xl transition-all duration-300   shadow-none">
 					<div className="space-y-4">
 						<div className="flex items-center gap-x-4">
 							<div>
