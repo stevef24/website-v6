@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Component() {
 	return (
-		<div className="relative min-h-screen bg-background font-sans flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+		<div className="relative h-[calc(100vh-4rem)] bg-background font-sans flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
 			<GridPattern
 				squares={[
 					[4, 4],
