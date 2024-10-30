@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Component() {
 	return (
-		<div className="relative h-[calc(100vh-4rem)] bg-background font-sans flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+		<div className="relative h-[calc(100vh)] bg-background font-sans flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
 			<GridPattern
 				squares={[
 					[4, 4],
@@ -31,7 +31,7 @@ export default function Component() {
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.8 }}
-				className="relative z-10 max-w-4xl mx-auto text-center space-y-8 min-h-[500px]  sm:space-y-10 md:space-y-12"
+				className="relative z-10 max-w-4xl mx-auto text-center space-y-8 min-h-[400px]  sm:space-y-10 md:space-y-12"
 			>
 				<h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight sm:leading-tight md:leading-tight lg:leading-tight">
 					Stav Fernandes
