@@ -7,15 +7,8 @@ import { sortPosts } from "@/lib/utils";
 import "@/styles/mdx.css";
 import { motion } from "framer-motion";
 import { BookOpen, Calendar, ChevronRight, Clock } from "lucide-react";
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import { QueryPagination } from "@/components/ui/QueryPagination";
 import Link from "next/link";
@@ -79,10 +72,7 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
 				</motion.div>
 			</div>
 
-			<ScrollArea
-				className="h-[calc(100vh-400px)] pr-4"
-				aria-label="Blog posts list"
-			>
+			<div className="h-[calc(100vh-400px)] pr-4" aria-label="Blog posts list">
 				{displayPosts.length > 0 ? (
 					<motion.ul
 						variants={fadeIn}
@@ -160,7 +150,7 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
 						</Card>
 					</motion.div>
 				)}
-			</ScrollArea>
+			</div>
 		</motion.div>
 	);
 }

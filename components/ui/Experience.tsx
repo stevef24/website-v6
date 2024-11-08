@@ -39,7 +39,7 @@ const workExperience: WorkExperience[] = [
 		role: "Software Developer",
 		roleDescription:
 			"Gained hands-on experience in a full-stack environment, collaborating with a team to develop both web and mobile applications. I worked across different stages of development, from planning to deployment, and played a key role in launching a mobile app. It was a great opportunity to sharpen my teamwork and technical skills in a dynamic project setting.",
-		location: "Manchester",
+		location: "Remote",
 		tech: ["JavaScript", "React", "Node.js", "PostgreSQL", "MongoDB", "Trello"],
 	},
 	{

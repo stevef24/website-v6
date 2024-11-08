@@ -49,8 +49,8 @@ export default function Hero() {
 					[10, 15],
 				]}
 				className={cn(
-					"[mask-image:radial-gradient(600px_circle_at_center,hsl(var(--primary)),transparent)]",
-					"inset-x-0 inset-y-[-30%] h-[160%] skew-y-12 opacity-40"
+					"[mask-image:radial-gradient(900px_circle_at_center,white,transparent)] max-sm:[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]",
+					"inset-x-0 inset-y-[-30%] h-[180%] max-sm:h-[160%] skew-y-12 opacity-40"
 				)}
 			/>
 
@@ -63,7 +63,7 @@ export default function Hero() {
 				{/* Main heading with adjusted mobile text size */}
 				<motion.h1
 					variants={itemVariants}
-					className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold bg-clip-text bg-gradient-to-r from-foreground to-foreground/80 [text-shadow:_0_0_50px_rgb(var(--primary-rgb)/0.3)] break-words"
+					className="text-6xl sm:text-6xl md:text-7xl lg:text-8xl font-bold bg-clip-text bg-gradient-to-r from-foreground to-foreground/80 [text-shadow:_0_0_50px_rgb(var(--primary-rgb)/0.3)] break-words"
 					role="heading"
 				>
 					Stav Fernandes
