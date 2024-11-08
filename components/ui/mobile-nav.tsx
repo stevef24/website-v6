@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { ModeToggle } from "./mode-toggle";
 import { DATA } from "@/app/data/resume";
@@ -114,19 +114,32 @@ export function MobileNav() {
 			...social,
 		}));
 
+	useEffect(() => {
+		if (isOpen) {
+			document.body.style.overflow = "hidden";
+		} else {
+			document.body.style.overflow = "unset";
+		}
+
+		// Cleanup function
+		return () => {
+			document.body.style.overflow = "unset";
+		};
+	}, [isOpen]);
+
 	const handleClose = () => setIsOpen(false);
 
 	return (
-		<div className="w-full ">
-			<div className="flex items-center justify-between p-4">
+		<div className="w-full">
+			<div className="flex items-center justify-between px-2">
 				<div className="font-semibold text-xl z-50">
 					<svg
 						width="130"
 						height="50"
 						viewBox="0 0 115 37"
-						fill="black"
+						fill="currentColor"
 						xmlns="http://www.w3.org/2000/svg"
-						className="w-full h-full mt-3 cursor-pointer fill-white"
+						className="w-full h-full mt-3 cursor-pointer fill-black dark:fill-white"
 					>
 						<path d="M48.3053 1.92932C50.1509 1.92932 51.0737 2.80323 51.0737 4.55105L50.3163 5.41824H49.8114C49.0163 4.25527 48.2647 3.67378 47.5566 3.67378C46.3784 3.67378 45.3714 5.61655 44.5357 9.50209C44.5357 10.0802 47.1329 10.5642 52.3273 10.9541C53.1689 11.5188 53.5897 12.2952 53.5897 13.2834L54.3384 12.6986L54.5908 12.991V15.0279C53.2385 15.6867 51.3117 17.1421 48.8102 19.3941L46.0418 20.2713C45.0377 20.0159 44.5357 19.7235 44.5357 19.3941V19.1017L51.0737 14.7355L51.3262 13.2834V12.991C51.2217 12.4129 50.5514 12.1238 49.3151 12.1238L49.0627 12.4062H48.8102L48.5577 12.1238L47.5566 12.4062C44.5212 12.0969 42.928 11.5154 42.7771 10.6617V10.0769C43.3923 4.64517 45.1509 1.92932 48.0528 1.92932H48.3053Z"></path>
 						<path d="M66.2739 1.27389C67.2432 1.27389 67.7278 1.83521 67.7278 2.95785L74.2571 1.83857V2.12091L74.5009 1.83857H75.4672L75.711 2.12091L75.9547 1.83857H76.1985C78.9379 1.95957 80.3076 2.33267 80.3076 2.95785L79.585 3.24019L77.1648 2.95785L76.1985 3.24019L74.9884 2.95785C70.8387 3.55614 67.2896 4.58467 64.3413 6.04342C59.9884 11.7978 57.812 15.2531 57.812 16.4093H58.047L61.4161 13.838L62.1474 13.5557L62.3825 13.838V14.8464C62.3825 15.3842 60.8793 16.6816 57.8729 18.7386C56.538 18.5773 55.8706 18.174 55.8706 17.5286V16.9639L56.6019 14.1708C56.0099 14.9439 55.3395 15.3304 54.5908 15.3304C54.2658 15.3035 54.1033 15.1018 54.1033 14.7254V14.1708C54.1033 13.6464 54.4254 13.1927 55.0696 12.8095C55.7313 12.3322 57.3709 10.6348 59.9884 7.7173C57.0807 7.15934 55.6268 6.60138 55.6268 6.04342V5.76108L56.3581 4.64181L57.5682 4.92415H58.5345L59.7446 4.64181V4.92415C63.4533 4.21157 65.3076 3.27716 65.3076 2.12091L66.2739 1.27389Z"></path>
@@ -185,57 +198,54 @@ export function MobileNav() {
 				</button>
 			</div>
 
-			<AnimatePresence>
-				{isOpen && (
+			{isOpen && (
+				<motion.div
+					variants={menuVariants}
+					initial="initial"
+					animate="animate"
+					exit="exit"
+					className="fixed inset-0 bg-background/80 backdrop-blur-[2px] z-40"
+				>
 					<motion.div
-						variants={menuVariants}
+						variants={containerVariants}
 						initial="initial"
 						animate="animate"
-						exit="exit"
-						className="fixed  inset-0 bg-background/95 backdrop-blur-sm z-40"
+						className="flex flex-col h-full px-6 pt-24 pb-12"
 					>
+						<nav className="flex flex-col space-y-6 mb-12">
+							{navLinks.map((item) => (
+								<NavLink
+									key={item.href}
+									href={item.href}
+									icon={item.icon}
+									label={item.label}
+									onClose={handleClose}
+								/>
+							))}
+						</nav>
+
+						<div className="flex flex-col space-y-4">
+							{socialLinks.map((social) => (
+								<SocialLink
+									key={social.key}
+									name={social.name}
+									url={social.url}
+									icon={social.icon}
+									onClose={handleClose}
+								/>
+							))}
+						</div>
+
 						<motion.div
-							variants={containerVariants}
-							initial="initial"
-							animate="animate"
-							exit="initial"
-							className="flex flex-col h-full px-6 pt-24 pb-12"
+							variants={itemVariants}
+							className="mt-auto flex items-center gap-3"
 						>
-							<nav className="flex flex-col space-y-6 mb-12">
-								{navLinks.map((item) => (
-									<NavLink
-										key={item.href}
-										href={item.href}
-										icon={item.icon}
-										label={item.label}
-										onClose={handleClose}
-									/>
-								))}
-							</nav>
-
-							<div className="flex flex-col space-y-4">
-								{socialLinks.map((social) => (
-									<SocialLink
-										key={social.key}
-										name={social.name}
-										url={social.url}
-										icon={social.icon}
-										onClose={handleClose}
-									/>
-								))}
-							</div>
-
-							<motion.div
-								variants={itemVariants}
-								className="mt-auto flex items-center gap-3"
-							>
-								<ModeToggle />
-								<span className="text-base font-medium">Theme</span>
-							</motion.div>
+							<ModeToggle />
+							<span className="text-base font-medium">Theme</span>
 						</motion.div>
 					</motion.div>
-				)}
-			</AnimatePresence>
+				</motion.div>
+			)}
 		</div>
 	);
 }

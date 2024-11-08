@@ -22,7 +22,7 @@ const workExperience: WorkExperience[] = [
 		role: "Software Engineer",
 		roleDescription:
 			"I’m currently working on improving the user experience for mortgage-related products. My main focus is creating scalable, user-friendly UIs, and collaborating with different teams to bring new features to life. I’ve had the chance to guide new developers and keep things running smoothly using modern tech stacks like React, Tailwind CSS, and AWS.",
-		location: "London, UK",
+		location: "London",
 		tech: [
 			"React",
 			"Next.js",
@@ -39,7 +39,7 @@ const workExperience: WorkExperience[] = [
 		role: "Software Developer",
 		roleDescription:
 			"Gained hands-on experience in a full-stack environment, collaborating with a team to develop both web and mobile applications. I worked across different stages of development, from planning to deployment, and played a key role in launching a mobile app. It was a great opportunity to sharpen my teamwork and technical skills in a dynamic project setting.",
-		location: "Manchester, UK",
+		location: "Manchester",
 		tech: ["JavaScript", "React", "Node.js", "PostgreSQL", "MongoDB", "Trello"],
 	},
 	{
