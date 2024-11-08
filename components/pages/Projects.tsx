@@ -131,7 +131,6 @@ const Projects = () => {
 				</div>
 			</div>
 
-			{/* Navigation Controls - Adjusted positioning */}
 			<div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 w-full flex justify-between pointer-events-none">
 				<Button
 					variant="ghost"
@@ -139,8 +138,9 @@ const Projects = () => {
 					onClick={() => handleNavigation("prev")}
 					disabled={isAtStart || isTransitioning}
 					className={cn(
-						"pointer-events-auto h-10 w-10 sm:h-14 sm:w-14 rounded-full bg-background/80 backdrop-blur-sm transition-all duration-200",
-						"absolute -left-2 sm:-left-7 lg:-left-10",
+						"pointer-events-auto rounded-full bg-background/80 backdrop-blur-sm transition-all duration-200",
+						"absolute h-10 w-10 -left-3",
+						"sm:h-12 sm:w-12 sm:left-0",
 						isAtStart
 							? "opacity-50 cursor-not-allowed border-muted"
 							: "hover:text-orange-500 border-orange-500 hover:border-orange-600 hover:scale-110",
@@ -150,7 +150,7 @@ const Projects = () => {
 				>
 					<ChevronLeftIcon
 						className={cn(
-							"h-8 w-8 sm:h-10 sm:w-10",
+							"h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10",
 							!isAtStart && "text-orange-500"
 						)}
 						aria-hidden="true"
@@ -163,8 +163,9 @@ const Projects = () => {
 					onClick={() => handleNavigation("next")}
 					disabled={isAtEnd || isTransitioning}
 					className={cn(
-						"pointer-events-auto h-10 w-10 sm:h-14 sm:w-14 rounded-full bg-background/80 backdrop-blur-sm transition-all duration-200",
-						"absolute -right-2 sm:-right-7 lg:-right-10",
+						"pointer-events-auto rounded-full bg-background/80 backdrop-blur-sm transition-all duration-200",
+						"absolute h-10 w-10 -right-3",
+						"sm:h-12 sm:w-12 sm:right-0",
 						isAtEnd
 							? "opacity-50 cursor-not-allowed border-muted"
 							: "hover:text-orange-500 border-orange-500 hover:border-orange-600 hover:scale-110",
@@ -174,7 +175,7 @@ const Projects = () => {
 				>
 					<ChevronRightIcon
 						className={cn(
-							"h-8 w-8 sm:h-10 sm:w-10",
+							"h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10",
 							!isAtEnd && "text-orange-500"
 						)}
 						aria-hidden="true"

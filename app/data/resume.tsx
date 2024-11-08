@@ -75,7 +75,7 @@ export const DATA = {
 		{
 			id: "1",
 			title: "Contentify",
-			byline: "Social Media Content Creator",
+			byline: "Content Creator",
 			description:
 				"A social media content generator for Twitter, LinkedIn, and more. Create quick posts with the right styling and sizing for each platform.",
 			technologies: [

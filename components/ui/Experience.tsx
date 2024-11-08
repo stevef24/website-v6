@@ -56,7 +56,7 @@ const workExperience: WorkExperience[] = [
 		companyName: "Aviva Investors",
 		dateFrom: "July 2019",
 		dateTo: "June 2022",
-		role: "Sales Enablement Associate & Multi-asset Investment Specialist",
+		role: "Sales Enablement Associate &  Investment Specialist",
 		roleDescription:
 			"In this role, I helped make sense of investment data and worked closely with sales teams and clients. I used my analytical and presentation skills to deliver insights and even automated some tasks to improve efficiency. It was a great mix of data, finance, and communication.",
 		location: "London",

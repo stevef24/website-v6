@@ -238,7 +238,7 @@ export function MobileNav() {
 
 						<motion.div
 							variants={itemVariants}
-							className="flex items-center gap-4 text-xl font-medium"
+							className="flex items-center  text-xl font-medium"
 						>
 							<ModeToggle className="h-8 w-8" />
 							<span>Theme</span>

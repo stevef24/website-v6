@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import GridPattern from "../ui/grid-pattern";
 import { cn } from "@/lib/utils";
-import { ArrowDown, Code, FlaskConical, WandSparkles } from "lucide-react";
+import { ArrowDown, Code, Hammer, WandSparkles } from "lucide-react";
 
 export default function Hero() {
 	const containerVariants = {
@@ -84,8 +84,8 @@ export default function Hero() {
 							Creative
 						</span>
 						<span className="flex items-center gap-2">
-							<FlaskConical className="w-4 h-4 sm:w-5 sm:h-5" />
-							Experimenter
+							<Hammer className="w-4 h-4 sm:w-5 sm:h-5" />
+							Builder
 						</span>
 					</div>
 				</motion.div>
