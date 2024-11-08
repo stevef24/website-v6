@@ -90,7 +90,7 @@ const Projects = () => {
 
 	return (
 		<section
-			className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-16"
+			className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-16 mb-10"
 			onKeyDown={handleKeyNavigation}
 			role="region"
 			aria-label="Projects carousel"
@@ -185,8 +185,7 @@ const Projects = () => {
 			{/* Pagination Indicators - Only visible on mobile/tablet */}
 			<div
 				className={cn(
-					"absolute -bottom-8 left-1/2 -translate-x-1/2 flex gap-2",
-					// Hide on desktop (lg screens and up)
+					"absolute -bottom-8 left-1/2 -translate-x-1/2 flex gap-2 mt-10",
 					"lg:hidden"
 				)}
 				role="tablist"

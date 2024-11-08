@@ -112,7 +112,7 @@ export const DATA = {
 		{
 			id: "4",
 			title: "City Canvas",
-			byline: "Collaborative City Mapping Tool",
+			byline: "City Mapping Tool",
 			description:
 				"An interactive platform to collaboratively map and visualize city projects, helping users plan and engage with urban spaces.",
 			technologies: ["Next.js", "React", "Mapbox", "Tailwind CSS", "Node.js"],
