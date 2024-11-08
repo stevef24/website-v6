@@ -58,42 +58,42 @@ export default function Hero() {
 				variants={containerVariants}
 				initial="hidden"
 				animate="visible"
-				className="relative z-10 max-w-4xl mx-auto text-center space-y-8 sm:space-y-10"
+				className="relative z-10 max-w-4xl mx-auto text-center space-y-6 sm:space-y-8 px-2"
 			>
-				{/* Main heading with enhanced text effects */}
+				{/* Main heading with adjusted mobile text size */}
 				<motion.h1
 					variants={itemVariants}
-					className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold bg-clip-text bg-gradient-to-r from-foreground to-foreground/80 [text-shadow:_0_0_50px_rgb(var(--primary-rgb)/0.3)]"
+					className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold bg-clip-text bg-gradient-to-r from-foreground to-foreground/80 [text-shadow:_0_0_50px_rgb(var(--primary-rgb)/0.3)] break-words"
 					role="heading"
 				>
 					Stav Fernandes
 				</motion.h1>
 
-				{/* Role with icon indicators */}
-				<motion.div variants={itemVariants} className="space-y-4">
-					<h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-primary">
+				{/* Role with adjusted mobile text size */}
+				<motion.div variants={itemVariants} className="space-y-3 sm:space-y-4">
+					<h2 className="text-xl sm:text-2xl md:text-4xl font-semibold text-primary">
 						Full Stack Software Engineer
 					</h2>
-					<div className="flex justify-center gap-6 text-muted-foreground">
+					<div className="flex flex-wrap justify-center gap-4 text-muted-foreground text-sm sm:text-base">
 						<span className="flex items-center gap-2">
-							<Code className="w-5 h-5" />
+							<Code className="w-4 h-4 sm:w-5 sm:h-5" />
 							Developer
 						</span>
 						<span className="flex items-center gap-2">
-							<WandSparkles className="w-5 h-5" />
+							<WandSparkles className="w-4 h-4 sm:w-5 sm:h-5" />
 							Creative
 						</span>
 						<span className="flex items-center gap-2">
-							<FlaskConical className="w-5 h-5" />
+							<FlaskConical className="w-4 h-4 sm:w-5 sm:h-5" />
 							Experimenter
 						</span>
 					</div>
 				</motion.div>
 
-				{/* Enhanced description */}
+				{/* Description with adjusted mobile text size */}
 				<motion.div
 					variants={itemVariants}
-					className="text-lg sm:text-xl md:text-2xl max-w-2xl mx-auto"
+					className="text-base sm:text-lg md:text-2xl max-w-2xl mx-auto px-2"
 				>
 					<p className="text-foreground leading-relaxed">
 						Crafting{" "}
