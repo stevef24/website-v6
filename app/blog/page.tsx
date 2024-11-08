@@ -1,9 +1,24 @@
+/* eslint-disable react/no-unescaped-entities */
+"use client";
+
 import React from "react";
 import { posts } from "#site/content";
 import { sortPosts } from "@/lib/utils";
 import "@/styles/mdx.css";
+import { motion } from "framer-motion";
+import { BookOpen, Calendar, ChevronRight, Clock } from "lucide-react";
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Button } from "@/components/ui/button";
 import { QueryPagination } from "@/components/ui/QueryPagination";
-import PostItem from "@/components/ui/PostItem";
+import Link from "next/link";
 
 const POSTS_PER_PAGE = 10;
 
@@ -13,10 +28,17 @@ interface BlogPageProps {
 	};
 }
 
-const BlogPage = async ({ searchParams }: BlogPageProps) => {
+const fadeIn = {
+	initial: { opacity: 0, y: 20 },
+	animate: { opacity: 1, y: 0 },
+	exit: { opacity: 0, y: 20 },
+};
+
+export default function BlogPage({ searchParams }: BlogPageProps) {
 	const currentPage = Number(searchParams.page) || 1;
 	const sortedPosts = sortPosts(posts.filter((post) => post.published));
 	const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
+	const totalPosts = sortedPosts.length;
 
 	const displayPosts = sortedPosts.slice(
 		POSTS_PER_PAGE * (currentPage - 1),
@@ -24,39 +46,121 @@ const BlogPage = async ({ searchParams }: BlogPageProps) => {
 	);
 
 	return (
-		<div className="container max-w-4xl py-6 lg:py-10">
-			<div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
-				<div className="flex-1 space-y-4">
-					<h1 className="inline-block  font-black text-4xl lg:text-5xl text-foreground">
-						Blog
+		<motion.div
+			initial="initial"
+			animate="animate"
+			exit="exit"
+			className="container max-w-4xl py-6 lg:py-10 max-sm:mt-[100px]"
+		>
+			<motion.div variants={fadeIn} className="relative mb-8">
+				<div className="relative">
+					<h1 className="text-4xl font-black lg:text-5xl mb-4">
+						<span className="inline-block text-orange-500">Blog</span>
 					</h1>
-					<p className="text-xl text-muted-foreground">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
-						cupiditate in dolorem nam? Exercitationem, natus dolor doloribus
-						assumenda velit eos?
+					<p className="text-xl text-muted-foreground max-w-2xl">
+						Welcome to my blog! Here, you'll find my thoughts, learnings, and
+						opinions on all things related to code. I'm always open to
+						discussions, so if something here sparks your interest, don't
+						hesitate to reach out.
 					</p>
 				</div>
-			</div>
-			<hr className="mt-8" />
-			{displayPosts.length > 0 ? (
-				<ul className="flex flex-col">
-					{displayPosts.map(({ date, title, slug, description }) => (
-						<li key={slug}>
-							<PostItem
-								slug={slug}
-								title={title}
-								date={date}
-								description={description}
-							/>
-						</li>
-					))}
-				</ul>
-			) : (
-				<p>Nothing to see here</p>
-			)}
-			<QueryPagination totalPages={totalPages} className="mt-10" />
-		</div>
-	);
-};
+			</motion.div>
 
-export default BlogPage;
+			<div className="flex items-center justify-between mb-6">
+				<div className="flex items-center gap-2 text-muted-foreground">
+					<span className="text-sm font-medium">
+						Page {currentPage} of {totalPages}
+					</span>
+					<Separator orientation="vertical" className="h-4" />
+					<span className="text-sm">{totalPosts} posts total</span>
+				</div>
+				<motion.div variants={fadeIn}>
+					<QueryPagination totalPages={totalPages} />
+				</motion.div>
+			</div>
+
+			<ScrollArea
+				className="h-[calc(100vh-400px)] pr-4"
+				aria-label="Blog posts list"
+			>
+				{displayPosts.length > 0 ? (
+					<motion.ul
+						variants={fadeIn}
+						className="space-y-6"
+						role="list"
+						aria-label="Blog posts"
+					>
+						{displayPosts.map(({ date, title, slug, description }, index) => (
+							<motion.li
+								key={slug}
+								initial={{ opacity: 0, y: 20 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ delay: index * 0.1 }}
+							>
+								<Link href={`/${slug}`} aria-label={`Read article: ${title}`}>
+									<Card className="group hover:shadow-lg transition-all duration-300 overflow-hidden border-primary/10 hover:border-primary/20">
+										<CardContent className="p-6">
+											<div className="space-y-4">
+												<div className="flex items-center justify-between text-sm text-muted-foreground">
+													<div className="flex items-center gap-2">
+														<Calendar className="h-4 w-4" aria-hidden="true" />
+														<time dateTime={date}>
+															{new Date(date).toLocaleDateString()}
+														</time>
+													</div>
+													<div className="flex items-center gap-2">
+														<Clock className="h-4 w-4" aria-hidden="true" />
+														<span>
+															{description
+																? Math.ceil(description.length / 200)
+																: 1}
+															min read
+														</span>
+													</div>
+												</div>
+
+												<div>
+													<h2 className="text-2xl font-bold tracking-tight mb-2 group-hover:text-primary transition-colors">
+														{title}
+													</h2>
+													<p className="text-muted-foreground line-clamp-2">
+														{description}
+													</p>
+												</div>
+
+												<div className="flex justify-between items-center">
+													<Button
+														variant="ghost"
+														className="group-hover:translate-x-1 transition-transform duration-300"
+													>
+														Read More{" "}
+														<ChevronRight
+															className="ml-2 h-4 w-4"
+															aria-hidden="true"
+														/>
+													</Button>
+													<div className="flex items-center gap-2 text-sm text-muted-foreground">
+														<BookOpen className="h-4 w-4" aria-hidden="true" />
+														<span>Article</span>
+													</div>
+												</div>
+											</div>
+										</CardContent>
+									</Card>
+								</Link>
+							</motion.li>
+						))}
+					</motion.ul>
+				) : (
+					<motion.div variants={fadeIn}>
+						<Card>
+							<CardContent className="p-6 text-center text-muted-foreground">
+								<p>No posts available at the moment. Check back soon!</p>
+							</CardContent>
+						</Card>
+					</motion.div>
+				)}
+			</ScrollArea>
+		</motion.div>
+	);
+}

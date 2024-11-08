@@ -1,6 +1,9 @@
+"use client";
+import { useState, useRef, useEffect } from "react";
 import WorkExperienceSection from "./WorkExperienceSection";
+import BlurFade from "./Blur";
 
-// Define the type for each work experience item
+// Types with proper documentation
 type WorkExperience = {
 	companyName: string;
 	dateFrom: string;
@@ -11,7 +14,6 @@ type WorkExperience = {
 	tech: string[];
 };
 
-// Use the new type for the data array
 const workExperience: WorkExperience[] = [
 	{
 		companyName: "Nationwide Building Society",
@@ -62,37 +64,105 @@ const workExperience: WorkExperience[] = [
 	},
 ];
 
+interface YearMarkerProps {
+	year: string;
+	className?: string;
+}
+
+const YearMarker = ({ year, className }: YearMarkerProps) => (
+	<div className="sticky top-0 z-10 -mx-4 sm:-mx-6 mb-4 bg-background/80 backdrop-blur-sm py-2">
+		<div className="px-4 sm:px-6">
+			<span className="text-sm font-medium text-muted-foreground">{year}</span>
+		</div>
+	</div>
+);
+
 const Experience = () => {
+	const [activeExperienceId, setActiveExperienceId] = useState<string | null>(
+		null
+	);
+	const [isClosing, setIsClosing] = useState(false);
+	const containerRef = useRef<HTMLDivElement>(null);
+
+	// Group experiences by year
+	const experiencesByYear = workExperience.reduce((acc, exp) => {
+		const year = exp.dateFrom.split(" ")[1];
+		if (!acc[year]) {
+			acc[year] = [];
+		}
+		acc[year].push(exp);
+		return acc;
+	}, {} as Record<string, typeof workExperience>);
+
+	const handleExperienceClick = (experienceId: string) => {
+		if (activeExperienceId === experienceId) {
+			setIsClosing(true);
+			// Add a small delay before actually changing the activeExperienceId
+			setTimeout(() => {
+				setActiveExperienceId(null);
+				setIsClosing(false);
+			}, 200); // Match this with your animation duration
+		} else {
+			setActiveExperienceId(experienceId);
+		}
+	};
+
+	useEffect(() => {
+		const handleOutsideClick = (e: MouseEvent) => {
+			if (
+				containerRef.current &&
+				!containerRef.current.contains(e.target as Node)
+			) {
+				setIsClosing(true);
+				setTimeout(() => {
+					setActiveExperienceId(null);
+					setIsClosing(false);
+				}, 200);
+			}
+		};
+
+		document.addEventListener("click", handleOutsideClick);
+		return () => document.removeEventListener("click", handleOutsideClick);
+	}, []);
+
 	return (
-		<section>
-			<ul className="space-y-3">
-				{workExperience.map(
-					(
-						{
-							companyName,
-							role,
-							roleDescription,
-							location,
-							tech,
-							dateFrom,
-							dateTo,
-						},
-						index
-					) => (
-						<WorkExperienceSection
-							companyName={companyName}
-							role={role}
-							roleDescription={roleDescription}
-							location={location}
-							tech={tech}
-							key={index}
-							index={index}
-							dateFrom={dateFrom}
-							dateTo={dateTo}
-						/>
-					)
-				)}
-			</ul>
+		<section
+			ref={containerRef}
+			className="relative w-full max-w-4xl mx-auto"
+			aria-label="Work Experience Timeline"
+		>
+			<BlurFade>
+				<div className="space-y-6 sm:space-y-8 px-4 sm:px-6">
+					{Object.entries(experiencesByYear)
+						.sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
+						.map(([year, experiences]) => (
+							<div key={year}>
+								<YearMarker year={year} />
+								<ul
+									className="space-y-3 sm:space-y-4"
+									role="list"
+									aria-label={`Work experiences from ${year}`}
+								>
+									{experiences.map((experience, index) => {
+										const experienceId = `${experience.companyName}-${index}`;
+										return (
+											<WorkExperienceSection
+												key={experienceId}
+												{...experience}
+												isActive={activeExperienceId === experienceId}
+												isClosing={
+													isClosing && activeExperienceId === experienceId
+												}
+												onSelect={() => handleExperienceClick(experienceId)}
+												index={index}
+											/>
+										);
+									})}
+								</ul>
+							</div>
+						))}
+				</div>
+			</BlurFade>
 		</section>
 	);
 };

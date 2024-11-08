@@ -28,7 +28,7 @@ const Post = async ({ params: { slug } }: PostPageProps) => {
 	}
 
 	return (
-		<article className="contaienr py-6 max-sm:px-4 prose dark:prose-invert max-w-3xl mx-auto">
+		<article className="contaienr py-6 max-sm:px-4 prose dark:prose-invert max-w-3xl mx-auto max-sm:mt-[100px] max-sm:mb-[50px] md:mb-[150px]">
 			<h1 className="mb-2">{post.title}</h1>
 			{post.description ? (
 				<p className="text-xl mt-0  text-muted-foreground">
