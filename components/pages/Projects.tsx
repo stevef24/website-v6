@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 import { useState, useEffect, useCallback } from "react";
 import { cn } from "@/lib/utils";
-import { AnimatePresence } from "framer-motion";
 import ProjectHoverCard from "../ui/ProjectHoverCard";
 
 const Projects = () => {
@@ -108,27 +107,27 @@ const Projects = () => {
 						transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)`,
 					}}
 				>
-					<AnimatePresence mode="wait">
-						{DATA.dummyProjects.map((project) => (
-							<div
-								key={project.id}
-								className={cn(
-									"px-2 sm:px-4",
-									cardsPerView === 1
-										? "min-w-full max-w-[350px] mx-auto"
-										: cardsPerView === 2
-										? "min-w-[50%]"
-										: "min-w-[33.333%]",
-									"max-w-[425px]"
-								)}
-							>
-								<ProjectHoverCard
-									{...project}
-									technologies={[...project.technologies]}
-								/>
-							</div>
-						))}
-					</AnimatePresence>
+					{DATA.dummyProjects.map((project) => (
+						<div
+							key={project.id}
+							className={cn(
+								"px-2 sm:px-4",
+								cardsPerView === 1
+									? "min-w-full max-w-[350px] mx-auto"
+									: cardsPerView === 2
+									? "min-w-[50%]"
+									: "min-w-[33.333%]",
+								"max-w-[425px]",
+								"transition-opacity duration-300",
+								isTransitioning ? "opacity-50" : "opacity-100"
+							)}
+						>
+							<ProjectHoverCard
+								{...project}
+								technologies={[...project.technologies]}
+							/>
+						</div>
+					))}
 				</div>
 			</div>
 
@@ -141,7 +140,7 @@ const Projects = () => {
 					disabled={isAtStart || isTransitioning}
 					className={cn(
 						"pointer-events-auto h-10 w-10 sm:h-14 sm:w-14 rounded-full bg-background/80 backdrop-blur-sm transition-all duration-200",
-						"absolute -left-5 sm:-left-7 lg:-left-10",
+						"absolute -left-2 sm:-left-7 lg:-left-10",
 						isAtStart
 							? "opacity-50 cursor-not-allowed border-muted"
 							: "hover:text-orange-500 border-orange-500 hover:border-orange-600 hover:scale-110",
@@ -165,7 +164,7 @@ const Projects = () => {
 					disabled={isAtEnd || isTransitioning}
 					className={cn(
 						"pointer-events-auto h-10 w-10 sm:h-14 sm:w-14 rounded-full bg-background/80 backdrop-blur-sm transition-all duration-200",
-						"absolute -right-5 sm:-right-7 lg:-right-10",
+						"absolute -right-2 sm:-right-7 lg:-right-10",
 						isAtEnd
 							? "opacity-50 cursor-not-allowed border-muted"
 							: "hover:text-orange-500 border-orange-500 hover:border-orange-600 hover:scale-110",

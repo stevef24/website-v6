@@ -6,7 +6,7 @@ import BlurFade from "../ui/Blur";
 export default function About() {
 	return (
 		<BlurFade inView>
-			<p className="text-lg text-muted-foreground leading-7 [&:not(:first-child)]:mt-6 text-left">
+			<p className="text-lg text-muted-foreground leading-7 [&:not(:first-child)]:mt-6 text-justify">
 				Hey there, I’m Stav Fernandes, a frontend developer with a passion for
 				creating seamless digital experiences. But there’s more to me than just
 				lines of code. I thrive on collaboration, believing that working with

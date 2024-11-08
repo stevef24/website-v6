@@ -30,58 +30,35 @@ const WorkExperienceSection = ({
 	onSelect,
 	index,
 }: WorkExperienceSectionProps) => {
-	// Animation variants for the container
+	// Animation variants for the container - matching Values.tsx timing
 	const containerVariants = {
 		hidden: { opacity: 0, y: 20 },
 		visible: {
 			opacity: 1,
 			y: 0,
 			transition: {
-				duration: 0.3,
+				duration: 0.5,
 				delay: index * 0.1,
-				ease: "easeOut",
-			},
-		},
-		exit: {
-			opacity: 0,
-			y: -20,
-			transition: {
-				duration: 0.2,
 			},
 		},
 	};
 
-	// Animation variants for the content
+	// Content variants for smooth expansion
 	const contentVariants = {
-		hidden: {
-			opacity: 0,
-			height: 0,
-			transition: {
-				duration: 0.2,
-				ease: "easeInOut",
-			},
-		},
+		hidden: { opacity: 0, height: 0 },
 		visible: {
 			opacity: 1,
 			height: "auto",
-			transition: {
-				duration: 0.3,
-				ease: "easeInOut",
-				staggerChildren: 0.1,
-			},
+			transition: { duration: 0.3 },
 		},
 	};
 
-	// Animation variants for content children
-	const childVariants = {
-		hidden: { opacity: 0, y: 20 },
+	// Text variants matching Values.tsx
+	const textVariants = {
+		hidden: { opacity: 0 },
 		visible: {
 			opacity: 1,
-			y: 0,
-			transition: {
-				duration: 0.3,
-				ease: "easeOut",
-			},
+			transition: { duration: 0.3, delay: 0.2 },
 		},
 	};
 
@@ -89,9 +66,8 @@ const WorkExperienceSection = ({
 		<motion.li
 			variants={containerVariants}
 			initial="hidden"
-			animate="visible"
-			exit="exit"
-			layout
+			whileInView="visible"
+			viewport={{ once: true }}
 			className={cn(
 				"group relative rounded-lg sm:rounded-xl border transition-all duration-300",
 				isActive
@@ -106,10 +82,7 @@ const WorkExperienceSection = ({
 				aria-expanded={isActive}
 				aria-controls={`experience-content-${index}`}
 			>
-				<motion.div
-					layout
-					className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-4"
-				>
+				<div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-4">
 					<div className="space-y-1 flex-1">
 						<div className="flex items-center gap-2">
 							<h3 className="text-lg sm:text-xl font-bold text-primary">
@@ -146,26 +119,24 @@ const WorkExperienceSection = ({
 							<span className="whitespace-nowrap">{location}</span>
 						</span>
 					</div>
-				</motion.div>
+				</div>
 
-				<AnimatePresence mode="wait">
-					{isActive && (
+				<motion.div
+					className={`overflow-hidden transition-all duration-300 ease-out ${
+						isActive ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+					}`}
+				>
+					<div className="pt-4">
 						<motion.div
-							variants={contentVariants}
+							variants={textVariants}
 							initial="hidden"
-							animate="visible"
-							exit="hidden"
-							id={`experience-content-${index}`}
-							className="pt-4 overflow-hidden"
+							animate={isActive ? "visible" : "hidden"}
 						>
-							<motion.p
-								variants={childVariants}
-								className="text-sm sm:text-base text-foreground leading-relaxed mb-4"
-							>
+							<p className="text-sm sm:text-base text-foreground leading-relaxed mb-4">
 								{roleDescription}
-							</motion.p>
+							</p>
 
-							<motion.div variants={childVariants} className="space-y-3">
+							<div className="space-y-3">
 								<h4 className="text-sm font-semibold text-primary">
 									Technologies & Skills
 								</h4>
@@ -175,17 +146,17 @@ const WorkExperienceSection = ({
 									aria-label="Technologies and skills"
 								>
 									{tech.map((item) => (
-										<motion.li key={item} variants={childVariants} layout>
+										<motion.li key={item} variants={textVariants} layout>
 											<span className="inline-flex items-center px-2 sm:px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
 												{item}
 											</span>
 										</motion.li>
 									))}
 								</ul>
-							</motion.div>
+							</div>
 						</motion.div>
-					)}
-				</AnimatePresence>
+					</div>
+				</motion.div>
 			</button>
 		</motion.li>
 	);

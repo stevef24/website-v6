@@ -1,7 +1,7 @@
 "use client";
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
 	ChevronRightIcon,
 	SparklesIcon,
@@ -134,33 +134,26 @@ const ValueItem = ({
 					</div>
 				</button>
 
-				<AnimatePresence>
-					{isExpanded && (
+				<motion.div
+					className={`px-6 pb-4 overflow-hidden transition-all duration-300 ease-out ${
+						isExpanded ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+					}`}
+				>
+					<div className="pt-4 border-t">
 						<motion.div
-							variants={contentVariants}
+							variants={textVariants}
 							initial="hidden"
 							animate="visible"
-							exit="hidden"
-							id={`value-content-${index}`}
-							className="px-6 pb-4"
 						>
-							<div className="pt-4 border-t">
-								<motion.div
-									variants={textVariants}
-									initial="hidden"
-									animate="visible"
-								>
-									<Typography
-										variant={Variant.body}
-										className="text-muted-foreground leading-relaxed"
-									>
-										{content}
-									</Typography>
-								</motion.div>
-							</div>
+							<Typography
+								variant={Variant.body}
+								className="text-muted-foreground leading-relaxed"
+							>
+								{content}
+							</Typography>
 						</motion.div>
-					)}
-				</AnimatePresence>
+					</div>
+				</motion.div>
 			</div>
 		</motion.div>
 	);
@@ -170,10 +163,7 @@ const Values = () => {
 	const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
 	return (
-		<section
-			className="container mx-auto "
-			aria-labelledby="values-description"
-		>
+		<section className=" mx-0  " aria-labelledby="values-description">
 			<BlurFade>
 				<div className="max-w-3xl mx-auto space-y-12">
 					<div className="text-center space-y-4">

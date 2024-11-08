@@ -41,8 +41,8 @@ const ContactLink = ({
 
 const Contact = () => {
 	return (
-		<section id="contact" aria-label="Contact section" className="w-full  px-4">
-			<div className="max-w-[600px] mx-auto">
+		<section id="contact" aria-label="Contact section" className="w-full ">
+			<div className="max-sm:w-full max-w-[600px] mx-auto">
 				<div className="relative rounded-xl overflow-hidden ">
 					<div className="relative p-8 sm:p-12">
 						<div className="flex flex-col items-center text-center space-y-6">

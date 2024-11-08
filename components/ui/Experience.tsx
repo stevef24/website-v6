@@ -49,7 +49,7 @@ const workExperience: WorkExperience[] = [
 		role: "Web Developer",
 		roleDescription:
 			"While traveling through Asia, I transitioned into web development by building websites for various clients. I focused on front-end development and picked up valuable skills like communication and adaptability while working remotely in different time zones.",
-		location: "Remote, Asia",
+		location: "Remote",
 		tech: ["HTML", "CSS", "Webflow", "JavaScript"],
 	},
 	{
@@ -59,7 +59,7 @@ const workExperience: WorkExperience[] = [
 		role: "Sales Enablement Associate & Multi-asset Investment Specialist",
 		roleDescription:
 			"In this role, I helped make sense of investment data and worked closely with sales teams and clients. I used my analytical and presentation skills to deliver insights and even automated some tasks to improve efficiency. It was a great mix of data, finance, and communication.",
-		location: "London, UK",
+		location: "London",
 		tech: ["Python", "Excel"],
 	},
 ];
@@ -132,7 +132,7 @@ const Experience = () => {
 			aria-label="Work Experience Timeline"
 		>
 			<BlurFade>
-				<div className="space-y-6 sm:space-y-8 px-4 sm:px-6">
+				<div className="space-y-6 sm:space-y-8">
 					{Object.entries(experiencesByYear)
 						.sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
 						.map(([year, experiences]) => (

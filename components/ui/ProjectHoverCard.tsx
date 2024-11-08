@@ -41,7 +41,7 @@ export default function ProjectHoverCard({
 			initial={{ opacity: 0, y: 20 }}
 			animate={{ opacity: 1, y: 0 }}
 			exit={{ opacity: 0, y: -20 }}
-			className="group relative h-full w-full max-w-[375px] mx-auto"
+			className="group relative h-full w-full max-sm:w-[275px] max-w-[375px] mx-auto"
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}
 			aria-labelledby={`project-title-${cardId}`}
