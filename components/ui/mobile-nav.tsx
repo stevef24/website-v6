@@ -204,7 +204,11 @@ export function MobileNav() {
 					initial="initial"
 					animate="animate"
 					exit="exit"
-					className="fixed inset-0 bg-background/95 backdrop-blur-[20px] z-40"
+					className="fixed inset-0 bg-background/95 supports-[backdrop-filter]:backdrop-blur-[20px] z-40"
+					style={{
+						WebkitBackdropFilter: "blur(20px)",
+						backdropFilter: "blur(20px)",
+					}}
 				>
 					<motion.div
 						variants={containerVariants}

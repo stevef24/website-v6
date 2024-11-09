@@ -61,7 +61,7 @@ const WorkExperienceSection = ({
 					aria-expanded={isActive}
 					aria-controls={`experience-content-${index}`}
 				>
-					<div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-4">
+					<div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-4 pb-1">
 						<div className="space-y-1 flex-1">
 							<div className="flex items-center gap-2">
 								<h3 className="text-lg sm:text-xl font-bold text-primary">
