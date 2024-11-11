@@ -95,6 +95,8 @@ const SocialLink = ({ name, url, icon: Icon, onClose }: SocialLinkProps) => (
 			href={url}
 			className="flex items-center gap-4 text-xl font-medium hover:text-primary transition-colors duration-300"
 			onClick={onClose}
+			target="_blank"
+			rel="noopener noreferrer"
 		>
 			<Icon className="h-5 w-5" />
 			{name}
