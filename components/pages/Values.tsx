@@ -163,7 +163,11 @@ const Values = () => {
 	const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
 	return (
-		<section className=" mx-0  " aria-labelledby="values-description">
+		<section
+			className=" mx-0  "
+			aria-labelledby="values-description"
+			id="values"
+		>
 			<BlurFade>
 				<div className="max-w-3xl mx-auto space-y-12">
 					<div className="text-center space-y-4">
