@@ -61,7 +61,9 @@ const Contact = () => {
 
 								<div className="flex flex-col sm:flex-row items-center justify-center gap-4">
 									<ContactLink
-										href="mailto:stevefernandes24@hotmail.co.uk"
+										href={`mailto:${atob(
+											"c3RldmVmZXJuYW5kZXMyNDEwQGdtYWlsLmNvbQ=="
+										)}`}
 										icon={EnvelopeOpenIcon}
 										label="Send an email"
 									>

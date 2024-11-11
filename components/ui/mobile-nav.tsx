@@ -73,10 +73,10 @@ const NavLink = ({ href, icon: Icon, label, onClose }: NavLinkProps) => (
 	<motion.div variants={itemVariants}>
 		<Link
 			href={href}
-			className="flex items-center gap-4 text-2xl font-medium hover:text-primary transition-colors duration-300"
+			className="flex items-center gap-4 text-xl font-medium hover:text-primary transition-colors duration-300"
 			onClick={onClose}
 		>
-			<Icon className="h-6 w-6" />
+			<Icon className="h-5 w-5" />
 			{label}
 		</Link>
 	</motion.div>
@@ -216,7 +216,7 @@ export function MobileNav() {
 						animate="animate"
 						className="flex flex-col h-full px-6 pt-24 pb-12"
 					>
-						<nav className="flex flex-col space-y-6 mb-12">
+						<nav className="flex flex-col space-y-4">
 							{navLinks.map((item) => (
 								<NavLink
 									key={item.href}
@@ -226,9 +226,7 @@ export function MobileNav() {
 									onClose={handleClose}
 								/>
 							))}
-						</nav>
 
-						<div className="flex flex-col space-y-4 mb-8">
 							{socialLinks.map((social) => (
 								<SocialLink
 									key={social.key}
@@ -238,15 +236,17 @@ export function MobileNav() {
 									onClose={handleClose}
 								/>
 							))}
-						</div>
 
-						<motion.div
-							variants={itemVariants}
-							className="flex items-center  text-xl font-medium"
-						>
-							<ModeToggle className="h-8 w-8" />
-							<span>Theme</span>
-						</motion.div>
+							<motion.div
+								variants={itemVariants}
+								className="mt-8 pt-8 border-t border-muted"
+							>
+								<div className="flex group-hover: items-center gap-4 text-xl font-medium hover:text-primary transition-colors duration-300">
+									<ModeToggle className="h-8 w-8" />
+									<span>Theme</span>
+								</div>
+							</motion.div>
+						</nav>
 					</motion.div>
 				</motion.div>
 			)}

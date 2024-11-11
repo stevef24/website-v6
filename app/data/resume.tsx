@@ -6,12 +6,9 @@ export const DATA = {
 	navbar: [
 		{ href: "/", icon: HomeIcon, label: "Home" },
 		{ href: "/blog", icon: NotebookIcon, label: "Blog" },
-		{ href: "#", icon: CodeIcon, label: "Projects" },
-		{ href: "#", icon: PencilLine, label: "Notes" },
+		{ href: "#projects", icon: CodeIcon, label: "Projects" },
 	],
 	contact: {
-		email: "hello@example.com",
-		tel: "+123456789",
 		social: {
 			GitHub: {
 				name: "GitHub",
@@ -36,41 +33,6 @@ export const DATA = {
 			},
 		},
 	},
-	education: [
-		{
-			school: "Buildspace",
-			href: "https://buildspace.so",
-			degree: "s3, s4, sf1, s5",
-			logoUrl: "/buildspace.jpg",
-			start: "2023",
-			end: "2024",
-		},
-		{
-			school: "University of Waterloo",
-			href: "https://uwaterloo.ca",
-			degree: "Bachelor's Degree of Computer Science (BCS)",
-			logoUrl: "/waterloo.png",
-			start: "2016",
-			end: "2021",
-		},
-		{
-			school: "Wilfrid Laurier University",
-			href: "https://wlu.ca",
-			degree: "Bachelor's Degree of Business Administration (BBA)",
-			logoUrl: "/laurier.png",
-			start: "2016",
-			end: "2021",
-		},
-		{
-			school: "International Baccalaureate",
-			href: "https://ibo.org",
-			degree: "IB Diploma",
-			logoUrl: "/ib.png",
-			start: "2012",
-			end: "2016",
-		},
-	],
-
 	dummyProjects: [
 		{
 			id: "1",

@@ -66,7 +66,7 @@ export default function Hero() {
 					className="text-6xl sm:text-6xl md:text-7xl lg:text-8xl font-bold bg-clip-text bg-gradient-to-r from-foreground to-foreground/80 [text-shadow:_0_0_50px_rgb(var(--primary-rgb)/0.3)] break-words"
 					role="heading"
 				>
-					Stav Fernandes
+					STAV FERNANDES
 				</motion.h1>
 
 				{/* Role with adjusted mobile text size */}
