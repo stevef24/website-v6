@@ -163,11 +163,7 @@ const Values = () => {
 	const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
 	return (
-		<section
-			className=" mx-0  "
-			aria-labelledby="values-description"
-			id="values"
-		>
+		<div className="mx-0 " aria-labelledby="values-description">
 			<BlurFade>
 				<div className="max-w-3xl mx-auto space-y-12">
 					<div className="text-center space-y-4">
@@ -203,7 +199,7 @@ const Values = () => {
 					</div>
 				</div>
 			</BlurFade>
-		</section>
+		</div>
 	);
 };
 

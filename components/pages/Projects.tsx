@@ -89,7 +89,7 @@ const Projects = () => {
 	);
 
 	return (
-		<section
+		<div
 			className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-16 mb-10"
 			onKeyDown={handleKeyNavigation}
 			role="region"
@@ -228,7 +228,7 @@ const Projects = () => {
 					);
 				})}
 			</div>
-		</section>
+		</div>
 	);
 };
 

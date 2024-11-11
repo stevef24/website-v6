@@ -41,7 +41,7 @@ const ContactLink = ({
 
 const Contact = () => {
 	return (
-		<section id="contact" aria-label="Contact section" className="w-full ">
+		<section aria-label="Contact section" className="w-full ">
 			<div className="max-sm:w-full max-w-[600px] mx-auto">
 				<div className="relative rounded-xl overflow-hidden ">
 					<div className="relative p-8 sm:p-12">
