@@ -39,7 +39,7 @@ export const DATA = {
 			title: "Contentify",
 			byline: "Content Creator",
 			description:
-				"A social media content generator for Twitter, LinkedIn, and more. Create quick posts with the right styling and sizing for each platform.",
+				"A social media content generator for Twitter, LinkedIn, and more. Create quick posts with the right styling and sizing for each platform. (Work In Progress)",
 			technologies: [
 				"Next.js",
 				"React",

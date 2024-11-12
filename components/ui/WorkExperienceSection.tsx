@@ -101,11 +101,13 @@ const WorkExperienceSection = ({
 
 					<div
 						className={`overflow-hidden transition-all duration-300 ease-out ${
-							isActive ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+							isActive
+								? "max-h-[1000px] sm:max-h-[500px] opacity-100"
+								: "max-h-0 opacity-0"
 						}`}
 					>
 						<div className="pt-4 border-t">
-							<p className="text-sm sm:text-base text-foreground leading-relaxed mb-4">
+							<p className="text-muted-foreground text-sm max-sm:text-base leading-relaxed mb-4">
 								{roleDescription}
 							</p>
 
@@ -120,7 +122,7 @@ const WorkExperienceSection = ({
 								>
 									{tech.map((item) => (
 										<li key={item}>
-											<span className="inline-flex items-center px-2 sm:px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
+											<span className=" inline-flex items-center px-2 sm:px-3 py-1 rounded-full text-xs font-medium border border-primary/20 text-primary/80 hover:bg-primary/20 transition-colors">
 												{item}
 											</span>
 										</li>
