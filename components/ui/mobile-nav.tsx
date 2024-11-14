@@ -244,8 +244,7 @@ export function MobileNav() {
 								className="mt-8 pt-8 border-t border-muted"
 							>
 								<div className="flex group-hover: items-center gap-4 text-xl font-medium hover:text-primary transition-colors duration-300">
-									<ModeToggle className="h-8 w-8" />
-									<span>Theme</span>
+									<ModeToggle />
 								</div>
 							</motion.div>
 						</nav>
