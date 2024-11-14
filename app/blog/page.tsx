@@ -80,66 +80,64 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
 						role="list"
 						aria-label="Blog posts"
 					>
-						{displayPosts.map(({ date, title, slug, description }, index) => (
-							<motion.li
-								key={slug}
-								initial={{ opacity: 0, y: 20 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ delay: index * 0.1 }}
-							>
-								<Link href={`/${slug}`} aria-label={`Read article: ${title}`}>
-									<Card className="group hover:shadow-lg transition-all duration-300 overflow-hidden border-primary/10 hover:border-primary/20">
-										<CardContent className="p-6">
-											<div className="space-y-4">
-												<div className="flex items-center justify-between text-sm text-muted-foreground">
-													<div className="flex items-center gap-2">
-														<Calendar className="h-4 w-4" aria-hidden="true" />
-														<time dateTime={date}>
-															{new Date(date).toLocaleDateString()}
-														</time>
+						{displayPosts.map(
+							({ date, title, slug, description, body }, index) => (
+								<motion.li
+									key={slug}
+									initial={{ opacity: 0, y: 20 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ delay: index * 0.1 }}
+								>
+									<Link href={`/${slug}`} aria-label={`Read article: ${title}`}>
+										<Card className="group hover:shadow-lg transition-all duration-300 overflow-hidden border-primary/10 hover:border-primary/20">
+											<CardContent className="p-6">
+												<div className="space-y-4">
+													<div className="flex items-center justify-between text-sm text-muted-foreground">
+														<div className="flex items-center gap-2">
+															<Calendar
+																className="h-4 w-4"
+																aria-hidden="true"
+															/>
+															<time dateTime={date}>
+																{new Date(date).toLocaleDateString()}
+															</time>
+														</div>
 													</div>
-													<div className="flex items-center gap-2">
-														<Clock className="h-4 w-4" aria-hidden="true" />
-														<span>
-															{description
-																? Math.ceil(description.length / 200)
-																: 1}
-															min read
-														</span>
+													<div>
+														<h2 className="text-2xl font-bold tracking-tight mb-2 group-hover:text-primary transition-colors">
+															{title}
+														</h2>
+														<p className="text-muted-foreground line-clamp-2">
+															{description}
+														</p>
 													</div>
-												</div>
 
-												<div>
-													<h2 className="text-2xl font-bold tracking-tight mb-2 group-hover:text-primary transition-colors">
-														{title}
-													</h2>
-													<p className="text-muted-foreground line-clamp-2">
-														{description}
-													</p>
-												</div>
-
-												<div className="flex justify-between items-center">
-													<Button
-														variant="ghost"
-														className="group-hover:translate-x-1 transition-transform duration-300"
-													>
-														Read More{" "}
-														<ChevronRight
-															className="ml-2 h-4 w-4"
-															aria-hidden="true"
-														/>
-													</Button>
-													<div className="flex items-center gap-2 text-sm text-muted-foreground">
-														<BookOpen className="h-4 w-4" aria-hidden="true" />
-														<span>Article</span>
+													<div className="flex justify-between items-center">
+														<Button
+															variant="ghost"
+															className="group-hover:translate-x-1 transition-transform duration-300"
+														>
+															Read More{" "}
+															<ChevronRight
+																className="ml-2 h-4 w-4"
+																aria-hidden="true"
+															/>
+														</Button>
+														<div className="flex items-center gap-2 text-sm text-muted-foreground">
+															<BookOpen
+																className="h-4 w-4"
+																aria-hidden="true"
+															/>
+															<span>Article</span>
+														</div>
 													</div>
 												</div>
-											</div>
-										</CardContent>
-									</Card>
-								</Link>
-							</motion.li>
-						))}
+											</CardContent>
+										</Card>
+									</Link>
+								</motion.li>
+							)
+						)}
 					</motion.ul>
 				) : (
 					<motion.div variants={fadeIn}>

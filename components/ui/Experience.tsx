@@ -43,7 +43,7 @@ const workExperience: WorkExperience[] = [
 		dateTo: "May 2023",
 		role: "Software Developer",
 		roleDescription:
-			"At Northcoders, I gained hands-on experience in agile development while working with React, Node.js, and PostgreSQL. I honed my skills in building and maintaining front-end and back-end solutions, applying best practices in modern JavaScript frameworks and databases. This role provided me with the opportunity to work in a team-focused environment, where collaboration and peer learning were integral. Additionally, I utilised tools such as Jest for unit testing, Jenkins for CI/CD automation, and React Testing Library to ensure the quality of the user interfaces.",
+			"At Northcoders, I gained hands-on experience in agile development while working with React, Node.js, and PostgreSQL. I honed my skills in building and maintaining front-end and back-end solutions, applying best practices in modern JavaScript frameworks and databases. This role provided me with the opportunity to work in a team-focused environment, where collaboration and peer learning were integral.",
 		location: "Remote",
 		tech: [
 			"React",
@@ -68,7 +68,7 @@ const workExperience: WorkExperience[] = [
 		companyName: "Aviva Investors",
 		dateFrom: "July 2019",
 		dateTo: "June 2022",
-		role: "Sales Enablement Associate &  Investment Specialist",
+		role: "Data Analyst",
 		roleDescription:
 			"In this data-driven role, I supported a £6 billion portfolio by providing in-depth analysis for strategic decisions. I streamlined data workflows using Python and Excel, significantly reducing reporting times. I also collaborated closely with sales teams and mentored junior analysts, refining my skills in data visualisation and client engagement.",
 		location: "London",

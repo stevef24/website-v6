@@ -13,7 +13,7 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-	title: "Stav Fernandes - Frontend Developer",
+	title: "Stav Fernandes - Fullstack Software Engineer",
 	description: "Personal portfolio website",
 };
 

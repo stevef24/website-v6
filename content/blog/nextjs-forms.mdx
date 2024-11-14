@@ -1,0 +1,205 @@
+---
+title: "Next.js 15 Form Component: A Complete Guide"
+description: "An in-depth exploration of the new Form Component in Next.js 15, covering implementation, best practices, and limitations"
+date: "2024-11-13"
+---
+
+# Next.js 15 Form Component: Everything I Learned
+
+Following up on our previous blog on the `useActionState` hook, I want to introduce the new form handling improvements in Next.js 15. During the Next.js Conf, they announced the release of the `next/forms` component. This new component retains all the capabilities of a standard HTML form while introducing enhanced features that make it faster and significantly more developer-friendly.
+
+## Handling Form Submission: The Old Way vs. The New Way
+
+To illustrate the improvements introduced in Next.js 15, let’s walk through how form submission worked before and how it works now with the new Form Component. We'll show how both approaches tackle the same problem: a search bar where users can type in a product name, like "iPhone." By setting the scene early, you’ll be able to clearly see the efficiency gained.
+
+### The Old Way of Doing Things
+
+In previous versions of Next.js, you'd have to use HTML forms along with hooks like `useRouter` from `next/navigation` to manually push the URL, as well as manually gather the form data. It meant more code and a more complex flow. Instead of a few lines, you were easily looking at 20+ lines of repetitive boilerplate:
+
+```jsx
+import { useRouter } from "next/navigation";
+
+function OldSearch() {
+	const router = useRouter();
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		const formData = new FormData(event.target);
+		const query = formData.get("query");
+		router.push(`/search?query=${query}`);
+	};
+
+	return (
+		<form onSubmit={handleSubmit}>
+			<input type="text" name="query" />
+			<button type="submit">Search</button>
+		</form>
+	);
+}
+```
+
+Let's break down the old way step-by-step:
+
+1. **Importing Dependencies**: We had to import `useRouter` from `next/navigation` to programmatically change routes after form submission.
+2. **Handling Form Submission**: Instead of relying on simple form action attributes, we needed to manually add an `onSubmit` handler to gather the form data and prevent the default HTML form behaviour (`event.preventDefault()`).
+3. **Constructing Form Data**: We used the `FormData` API to gather the form fields and their values, which added extra code.
+4. **Routing Logic**: Using `useRouter`, we manually pushed the constructed URL (`/search?query=${query}`) to simulate what would normally be a straightforward navigation.
+5. **Client Component Requirement**: Since we were using `useRouter`, the entire component had to be a client component, adding complexity and potentially affecting performance.
+
+### The New Way of Doing Things
+
+With the new Form Component, all that complexity is eliminated, making the developer experience much more enjoyable and the code far more readable and maintainable.
+
+In contrast to the old way, here’s what the new implementation looks like:
+
+```jsx
+import Form from "next/form";
+
+function Search() {
+	return (
+		<Form action="/search">
+			<input type="text" name="query" />
+			<button type="submit">Search</button>
+		</Form>
+	);
+}
+```
+
+Notice the difference:
+
+- **No Manual URL Construction**: The action prop automatically updates the URL with the query parameters, which means no need for `useRouter` or explicit calls to `router.push()`.
+- **Simplified Form Submission**: There’s no need to use `event.preventDefault()` or manually gather form data using `FormData`.
+- **Cleaner Code**: The new implementation has fewer lines of code and no explicit routing logic, which makes it easier to maintain.
+- **No Hooks Requirement**: No use of hooks, which means the component can remain server-side and avoid being forced into client mode.
+
+## Server Actions with the Form Component
+
+Now, let’s talk about the second superpower of the Form Component—executing server actions. In Next.js, server actions are server-side functions triggered by form submissions. By passing a server action as the `action` prop, your form can directly invoke server-side code, simplifying the process.
+
+Here's how it works in practice:
+
+1. Import the server action into your component.
+2. Use the Form Component and assign the server action to the `action` prop.
+
+Example:
+
+```jsx
+import Form from "next/form";
+import { createPost } from "./actions"; // Server action
+
+function CreatePost() {
+	return (
+		<Form action={createPost}>
+			<input type="text" name="title" placeholder="Enter post title" />
+			<button type="submit">Create Post</button>
+		</Form>
+	);
+}
+```
+
+In this scenario, when you click the "Create Post" button, the `createPost` function runs on the server, handling the form data. This is incredibly useful for creating new resources, handling sensitive logic, or performing server-side mutations without writing an API endpoint explicitly.
+
+### Example Server Action
+
+```jsx
+"use server";
+
+export async function createPost(formData) {
+	const title = formData.get("title");
+	console.log("Creating post:", title);
+	// You can also insert into a database here, etc.
+}
+```
+
+The `use server` directive tells Next.js that this function must run on the server, making it a cleaner and more efficient way to manage server-side logic originating from form submissions.
+
+## String or Function?
+
+To summarise, there are two ways to use the `action` prop within the Form Component: one as a string and the other as a function. Below, we'll quickly go over the behaviour, use case, and considerations for each and then we will take a look on when to use each case.
+
+### `action` as a String (URL)
+
+- **Behaviour**: The form submits data using the GET method, appending form data to the URL as query parameters.
+- **Use Case**: Ideal for simple forms where data can be exposed in the URL, such as search forms.
+- **Considerations**:
+  - Data is visible in the URL, which may not be suitable for sensitive information.
+  - Limited control over data processing and validation.
+
+### `action` as a Function
+
+- **Behaviour**: The form submits data to a server-side function, allowing for custom handling, validation, and processing.
+- **Use Case**: Suitable for forms requiring server-side logic, data validation, or when handling sensitive information.
+- **Example**:
+  ```jsx
+  <Form action={handleSubmit}>
+  	<input name="username" />
+  	<button type="submit">Register</button>
+  </Form>
+  ```
+  ```jsx
+  "use server";
+  async function handleSubmit(formData) {
+  	const username = formData.get("username");
+  	// Perform validation and processing
+  }
+  ```
+- **Considerations**:
+  - Offers enhanced control over data handling.
+  - Data is not exposed in the URL, ensuring better security for sensitive information.
+
+### When to Use What
+
+To determine which type of `action` prop to use, consider the following decision tree:
+
+```
+Start
+  ├── Is the form data sensitive or requires server-side processing?
+  │     ├── Yes → Use `action` as a Function
+  │     └── No
+  │          ├── Is it acceptable for form data to appear in the URL?
+  │          │     ├── Yes → Use `action` as a String (URL)
+  │          │     └── No → Use `action` as a Function
+  └── Use `action` as a String (URL)
+
+```
+
+### Key Questions to Determine `action` Type
+
+- **Does the form handle sensitive information?** If yes, prefer using `action` as a function to prevent data exposure in the URL.
+- **Is server-side validation or processing required?** If yes, using `action` as a function allows for necessary server-side logic.
+- **Is it acceptable for form data to be visible in the URL?** If no, opt for `action` as a function to keep data out of the URL.
+- **Is the form simple, like a search bar, where data visibility in the URL is beneficial?** If yes, using `action` as a string (URL) is appropriate.
+
+## Why You Should Use the Form Component
+
+There is no right or wrong when choosing between the old way or the new Form Component. What I will say is that the new Form Component is a massive quality-of-life improvement for any Next.js developer. It really reduces the boilerplate, simplifies state management, and integrates beautifully into client-side navigation and server actions. If you have a small app with a one-off form, you can still opt for the older approach. However, if you're starting a web app using Next.js 15 and expect more complex state management in the future, I highly recommend using the Form Component.
+
+## Limitations and Strategies for Using the Form Component
+
+As with any great concept that reduces the workload for developers, it also reduces flexibility, and the Next.js Form Component is no different. Let's explore some of the potential challenges when using the Form Component.
+
+### 1. Unsupported Attributes
+
+The `<Form>` component does not support the `method`, `encType`, and `target` attributes, as they can override its intended behaviour. If your form requires these attributes, use the standard HTML `<form>` element instead. This approach ensures full compatibility with these attributes and allows for the desired form behaviour.
+
+### 2. Handling File Inputs
+
+When using `<input type="file">` within the `<Form>` component and setting the `action` prop as a string, the form submits only the filename, not the actual file content. For forms that need to handle file uploads, opt for the standard HTML `<form>` element with the appropriate `method` and `encType` attributes. This setup ensures that the full file data is transmitted during submission.
+
+### 3. Overriding Default Behaviour with `onSubmit`
+
+Attaching an `onSubmit` event handler and calling `event.preventDefault()` will override the default behaviour of the `<Form>` component, such as client-side navigation. If you need to use the `onSubmit` event, be cautious about calling `event.preventDefault()`. Ensure that any custom submission logic aligns with the desired form behaviour and does not conflict with the component's default handling.
+
+### 4. Prefetching Limitations
+
+When the `action` prop is a function (e.g., a Server Action), the `<Form>` component cannot automatically prefetch shared UI components. To mitigate potential performance issues, consider manually prefetching necessary components or data when using function-based actions. This proactive approach can help maintain optimal performance.
+
+### 5. Potential for Unintended Behaviour
+
+Misconfiguring the `action` prop or misunderstanding its dual functionality (string vs. function) can lead to unintended form submission behaviour. Ensure that the `action` prop is set appropriately based on the desired form handling logic. Clearly define whether the form should navigate to a URL or execute a server-side function, and configure the `action` prop accordingly.
+
+As you can see, there are a few gotchas and limitations, but nothing that would prevent you from using the Form Component entirely in your app.
+
+## Final Words
+
+The Form Component in Next.js 15 is all about simplifying and optimising the developer experience. Whether you’re navigating to new pages with search parameters or triggering server-side actions directly, this new feature offers a more efficient, cleaner solution. If you’re building apps with Next.js 15, I would highly recommend implementing it or even starting a small project to play around with it and see whether it fits your workflow.

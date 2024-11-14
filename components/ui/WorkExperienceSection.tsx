@@ -107,7 +107,7 @@ const WorkExperienceSection = ({
 						}`}
 					>
 						<div className="pt-4 border-t">
-							<p className="text-muted-foreground text-sm max-sm:text-base leading-relaxed mb-4">
+							<p className="text-muted-foreground text-base leading-relaxed mb-4">
 								{roleDescription}
 							</p>
 
