@@ -6,7 +6,7 @@ date: "2024-11-13"
 
 # Next.js 15 Form Component: Everything I Learned
 
-Following up on our previous blog on the `useActionState` hook, I want to introduce the new form handling improvements in Next.js 15. During the Next.js Conf, they announced the release of the `next/forms` component. This new component retains all the capabilities of a standard HTML form while introducing enhanced features that make it faster and significantly more developer-friendly.
+Following up on our previous blog on the `useActionState` hook, I want to introduce the new form handling improvements in Next.js 15. During the Next.js Conf, they announced the release of the `next/forms component. This new component retains all the capabilities of a standard HTML form while introducing enhanced features that make it faster and significantly more developer-friendly.
 
 ## Handling Form Submission: The Old Way vs. The New Way
 
@@ -147,28 +147,49 @@ To summarise, there are two ways to use the `action` prop within the Form Compon
   - Offers enhanced control over data handling.
   - Data is not exposed in the URL, ensuring better security for sensitive information.
 
-### When to Use What
+### Framework for Choosing the Right `action` Type for Your Forms
 
-To determine which type of `action` prop to use, consider the following decision tree:
+Forms are one of the most fundamental components of web development. However, deciding how to handle their submission effectively can be tricky, especially when balancing usability, security, and server-side processing. The action attribute is key to determining where form data goes once submitted, but choosing between using action as a function or as a URL string can significantly impact your application's overall behavior.
 
-```
-Start
-  ├── Is the form data sensitive or requires server-side processing?
-  │     ├── Yes → Use `action` as a Function
-  │     └── No
-  │          ├── Is it acceptable for form data to appear in the URL?
-  │          │     ├── Yes → Use `action` as a String (URL)
-  │          │     └── No → Use `action` as a Function
-  └── Use `action` as a String (URL)
+This framework will guide you through making the right decision based on a set of key questions. Let’s dive into each consideration to determine the most appropriate approach for handling your form submissions.
 
-```
+**1. Does the Form Handle Sensitive Information?**
 
-### Key Questions to Determine `action` Type
+**Yes** <br/>
+When handling sensitive information like passwords, personal details, or payment data, you should use action as a function. This prevents sensitive data from being exposed in the URL, thereby enhancing security. By keeping sensitive information out of the URL, you reduce the risk of it being logged in browser history or server logs, which could be potential security vulnerabilities.
 
-- **Does the form handle sensitive information?** If yes, prefer using `action` as a function to prevent data exposure in the URL.
-- **Is server-side validation or processing required?** If yes, using `action` as a function allows for necessary server-side logic.
-- **Is it acceptable for form data to be visible in the URL?** If no, opt for `action` as a function to keep data out of the URL.
-- **Is the form simple, like a search bar, where data visibility in the URL is beneficial?** If yes, using `action` as a string (URL) is appropriate.
+**No** <br/>
+If the form doesn’t handle sensitive information, such as a newsletter subscription, it is possibly acceptable to use action as a string. However, let's move on to the next question to gather more information.
+
+**2. Is Server-Side Validation or Processing Required?**
+
+**Yes** <br/>
+For forms that require server-side logic, such as validating data or interacting with a database, using action as a function is the way to go. This gives you complete control over how data is validated and processed before taking further action. For example, ensuring a username is unique or confirming that submitted data meets specific criteria can be effectively handled server-side.
+
+**No** <br/>
+If the form is straightforward and doesn't require complex server-side validation, using action as a string can simplify the process. However, we are not done yet; there are still a few more questions to consider to be absolutely sure.
+
+**3. Is It Acceptable for Form Data to Be Visible in the URL?**
+
+**Yes** <br/>
+In some cases, having form data visible in the URL is actually beneficial. For example, search bars often use action as a string (URL) to allow users to bookmark or share their search queries. If there is no sensitive data involved and the visibility of form data in the URL serves a functional purpose, this approach is ideal.
+
+**No** <br/>
+If form data contains personal or sensitive details that should not be publicly visible, using action as a function is the safer choice. This keeps data internal and away from the URL, ensuring user privacy and preventing exposure in logs or browser history.
+
+**4. Is the Form Simple, Like a Search Bar, Where Data Visibility in the URL Is Beneficial?**
+
+**let's improve type safety Yes** <br/>
+If your form is as simple as a search bar or filter, where having the parameters in the URL is advantageous, then using action as a string (URL) is a great fit. It allows users to easily bookmark the resulting page or share a link to their filtered results—features that improve user experience in specific contexts.
+
+**No** <br/>
+For more complex forms that do not benefit from having data in the URL, or for any form where security is a primary concern, using action as a function is preferable. This keeps the data internal and protects user information, which is essential for maintaining trust and privacy.
+
+Choosing the right action type for your forms is all about understanding the nature of the data you are handling and the context in which the form is being used. By asking yourself these key questions, you can make an informed decision that balances security, usability, and functionality. Whether you’re handling sensitive data, requiring server-side validation, or simply enabling users to share a link, the right action type can ensure your forms are robust and user-friendly.
+
+I made a quick component that will help you go through the questions and decide which action type to use. Simply answer each question, and the component will suggest whether to use action as a function or as a URL, making your decision-making process more intuitive.
+
+<DecisionNode />
 
 ## Why You Should Use the Form Component
 

@@ -43,18 +43,23 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
 			initial="initial"
 			animate="animate"
 			exit="exit"
-			className="container max-w-4xl py-6 lg:py-10 max-sm:mt-[100px]"
+			className="container max-w-4xl py-6 lg:py-10 mb-[100px] max-sm:mt-[100px]"
 		>
 			<motion.div variants={fadeIn} className="relative mb-8">
 				<div className="relative">
 					<h1 className="text-4xl font-black lg:text-5xl mb-4">
 						<span className="inline-block text-orange-500">Blog</span>
 					</h1>
-					<p className="text-xl text-muted-foreground max-w-2xl">
-						Welcome to my blog! Here, you'll find my thoughts, learnings, and
-						opinions on all things related to code. I'm always open to
-						discussions, so if something here sparks your interest, don't
-						hesitate to reach out.
+					<p className="text-xl text-muted-foreground max-w-full ">
+						Welcome to our blog! Here, you’ll find my thoughts, learnings, and
+						opinions on everything related to code, design, and even life. I’m
+						always eager to keep learning, and for me, the best way to do that
+						is by teaching and sharing my understandings with others. You might
+						spot some mistakes here and there, and that’s fantastic—if you do,
+						let me know so I can improve. If you see areas where things could be
+						explained better or if you have suggestions for me, I’d love to hear
+						them. It’s all part of the learning journey. So, stay in touch,
+						reach out, and let’s dive into the latest topics in tech together!
 					</p>
 				</div>
 			</motion.div>
