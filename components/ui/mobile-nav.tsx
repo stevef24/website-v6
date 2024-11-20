@@ -7,7 +7,6 @@ import { Menu, X } from "lucide-react";
 import { ModeToggle } from "./mode-toggle";
 import { DATA } from "@/app/data/resume";
 
-// Enhanced animation variants
 const menuVariants = {
 	initial: {
 		opacity: 0,
