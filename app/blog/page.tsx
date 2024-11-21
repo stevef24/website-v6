@@ -43,23 +43,21 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
 			initial="initial"
 			animate="animate"
 			exit="exit"
-			className="container max-w-4xl py-6 lg:py-10 mb-[100px] max-sm:mt-[100px]"
+			className="container max-w-4xl py-8 lg:py-12 mb-[100px] max-sm:mt-[100px]"
 		>
-			<motion.div variants={fadeIn} className="relative mb-8">
+			<motion.div variants={fadeIn} className="relative mb-10">
 				<div className="relative">
-					<h1 className="text-4xl font-black lg:text-5xl mb-4">
+					<h1 className="text-4xl font-black lg:text-5xl mb-6">
 						<span className="inline-block text-orange-500">Blog</span>
 					</h1>
-					<p className="text-xl text-muted-foreground max-w-full ">
-						Welcome to our blog! Here, you’ll find my thoughts, learnings, and
-						opinions on everything related to code, design, and even life. I’m
-						always eager to keep learning, and for me, the best way to do that
-						is by teaching and sharing my understandings with others. You might
-						spot some mistakes here and there, and that’s fantastic—if you do,
-						let me know so I can improve. If you see areas where things could be
-						explained better or if you have suggestions for me, I’d love to hear
-						them. It’s all part of the learning journey. So, stay in touch,
-						reach out, and let’s dive into the latest topics in tech together!
+					<p className="text-xl text-muted-foreground max-w-full">
+						Welcome to my blog! Here, I share my thoughts on code, design, and
+						life—everything I’m passionate about. For me, writing is a way to
+						learn, teach, and grow. If you spot any mistakes or have suggestions
+						on how I can explain things better, don’t hesitate to reach out.
+						This blog is as much about connecting and improving together as it
+						is about sharing ideas. Stay tuned, stay curious, and let’s dive
+						into the latest topics in tech!
 					</p>
 				</div>
 			</motion.div>
@@ -77,7 +75,7 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
 				</motion.div>
 			</div>
 
-			<div className="h-[calc(100vh-400px)] pr-4" aria-label="Blog posts list">
+			<div className="space-y-8" aria-label="Blog posts list">
 				{displayPosts.length > 0 ? (
 					<motion.ul
 						variants={fadeIn}
@@ -148,11 +146,18 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
 					<motion.div variants={fadeIn}>
 						<Card>
 							<CardContent className="p-6 text-center text-muted-foreground">
-								<p>No posts available at the moment. Check back soon!</p>
+								<p>
+									It seems quiet here right now, but stay tuned—new posts are
+									coming soon!
+								</p>
 							</CardContent>
 						</Card>
 					</motion.div>
 				)}
+			</div>
+
+			<div className="mt-6">
+				<QueryPagination totalPages={totalPages} />
 			</div>
 		</motion.div>
 	);
