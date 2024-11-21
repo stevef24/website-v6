@@ -18,35 +18,35 @@ const valueItems = [
 		title: "Collaboration",
 		icon: UsersIcon,
 		content:
-			"Collaboration is essential to reach your full potential. Surrounding yourself with people who push you to be your best is crucial. In an environment where everyone inspires each other to grow, we can all thrive together. That's why collaboration is not just a value but a fundamental part of my approach to work.",
+			"Collaboration is essential to reach your full potential. Surrounding yourself with people who challenge and inspire you is crucial. In an environment where everyone pushes each other to grow, we can all thrive together. Collaboration isn’t just a value to me—it’s the way I strive to work every day.",
 		color: "bg-blue-500/10 text-blue-500",
 	},
 	{
 		title: "Boldness",
 		icon: RocketIcon,
 		content:
-			"Boldness is about more than innovation; it's the courage to change what needs changing and to see possibilities others overlook. To make a real impact, I follow my vision, taking calculated risks and challenging norms. It's about pursuing new paths and creating my own when necessary. Through boldness, I strive to be the change I want to see in the world.",
+			"Boldness is about more than innovation—it’s the courage to change what needs changing and to see opportunities others might overlook. I’ve learned that making a real impact requires following your vision, taking calculated risks, and challenging norms. Whether it’s pursuing new paths or creating my own, boldness fuels my drive to make meaningful change.",
 		color: "bg-purple-500/10 text-purple-500",
 	},
 	{
 		title: "Work Ethic",
 		icon: BrainCircuitIcon,
 		content:
-			"Work ethic is the foundation of any great achievement. It's not just a phrase for resumes; it's a deep commitment to becoming the best version of yourself. I believe in working smart and hard, on both myself and with those around me, to turn visions into reality. Consistent effort and dedication are essential, and without them, lasting success is unattainable.",
+			"Work ethic is the foundation of every great achievement. It’s not just a phrase for resumes—it’s about committing to becoming the best version of yourself. For me, it’s about working smart and hard, with dedication and consistency, to turn visions into reality. Without this, lasting success simply isn’t possible.",
 		color: "bg-orange-500/10 text-orange-500",
 	},
 	{
 		title: "Growth",
 		icon: SparklesIcon,
 		content:
-			"Growth is fundamental to a fulfilling life. As humans, we inherently seek growth, consciously or subconsciously. It's what makes life worth living, providing us with opportunities to learn, adapt, and evolve. Growth fuels our hope that things can always get better.",
+			"Growth is what makes life exciting. I believe we all crave it, whether we realize it or not. It's about learning, adapting, and finding new ways to evolve—both personally and professionally. To me, growth is a source of hope: a reminder that no matter where we are, things can always improve.",
 		color: "bg-green-500/10 text-green-500",
 	},
 	{
 		title: "Curiosity",
 		icon: SearchIcon,
 		content:
-			"Curiosity is my compass, guiding me through exploration and growth. More than raw intelligence, it's curiosity that sparks passion and drives me to uncover new things. It's through curiosity that we often make mistakes, and those mistakes are crucial stepping stones to success. I value curiosity in myself and in the teams I work with.",
+			"Curiosity is my compass, guiding me through exploration and discovery. It’s more than just wanting to know—it’s about diving deep, asking questions, and uncovering the unknown. I value curiosity because it sparks passion, drives innovation, and embraces mistakes as stepping stones to success.",
 		color: "bg-red-500/10 text-red-500",
 	},
 ];
@@ -79,23 +79,6 @@ const ValueItem = ({
 				duration: 0.5,
 				delay: index * 0.1,
 			},
-		},
-	};
-
-	const contentVariants = {
-		hidden: { opacity: 0, height: 0 },
-		visible: {
-			opacity: 1,
-			height: "auto",
-			transition: { duration: 0.3 },
-		},
-	};
-
-	const textVariants = {
-		hidden: { opacity: 0 },
-		visible: {
-			opacity: 1,
-			transition: { duration: 0.3, delay: 0.2 },
 		},
 	};
 
@@ -133,25 +116,18 @@ const ValueItem = ({
 						</motion.div>
 					</div>
 				</button>
-
 				<motion.div
 					className={`px-6 pb-4 overflow-hidden transition-all duration-300 ease-out ${
 						isExpanded ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
 					}`}
 				>
 					<div className="pt-4 border-t">
-						<motion.div
-							variants={textVariants}
-							initial="hidden"
-							animate="visible"
+						<Typography
+							variant={Variant.body}
+							className="text-muted-foreground leading-relaxed"
 						>
-							<Typography
-								variant={Variant.body}
-								className="text-muted-foreground leading-relaxed"
-							>
-								{content}
-							</Typography>
-						</motion.div>
+							{content}
+						</Typography>
 					</div>
 				</motion.div>
 			</div>
@@ -163,7 +139,7 @@ const Values = () => {
 	const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
 	return (
-		<div className="mx-0 " aria-labelledby="values-description">
+		<div className="mx-0" aria-labelledby="values-description">
 			<BlurFade>
 				<div className="max-w-3xl mx-auto space-y-12">
 					<div className="text-center space-y-4">
@@ -171,19 +147,18 @@ const Values = () => {
 							variant={Variant.body}
 							className="text-muted-foreground leading-relaxed"
 						>
-							These core values are at the heart of who I am and how I work.
-							They're not just guidelines for me but{" "}
-							<strong>qualities I look for in every team I join</strong>. By
-							embracing{" "}
+							These values are at the core of who I am—not just as a developer,
+							but as a person. They're qualities I look for in every team I
+							join. By embracing{" "}
 							<em>
-								collaboration, boldness, a strong work ethic, growth, and
-								curiosity
+								collaboration, boldness, work ethic, growth, and curiosity
 							</em>
 							, I believe we can create a space where everyone thrives and
-							contributes to something meaningful.
+							contributes to something meaningful. Do these values resonate with
+							you? I'd love to hear about the principles that guide your work
+							and life.
 						</Typography>
 					</div>
-
 					<div className="space-y-4">
 						{valueItems.map((item, index) => (
 							<ValueItem
