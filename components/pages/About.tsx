@@ -26,7 +26,7 @@ export default function About() {
 						values
 					</a>
 					, I truly love life. I love learning, growing, and laughing. I thrive
-					on being part of something bigger, solving problems with a team, and
+					on being part of something bigger, solving problems with a team and
 					learning from diverse perspective, it’s what keeps me excited every
 					day. I look for opportunities to work with people who aren’t afraid to
 					try new things, take risks, or even fail. I’m all about testing the
