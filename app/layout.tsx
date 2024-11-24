@@ -5,11 +5,18 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/ui/navbar";
+import { Outfit } from "next/font/google";
 
 const fontSans = FontSans({
 	subsets: ["latin"],
 	weight: ["400", "500", "600", "700"],
 	variable: "--font-sans",
+});
+
+const outfit = Outfit({
+	subsets: ["latin"],
+	weight: ["300", "400", "500", "600", "700"],
+	variable: "--font-outfit",
 });
 
 export const metadata: Metadata = {
@@ -23,11 +30,12 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" suppressHydrationWarning>
+		<html lang="en" suppressHydrationWarning className={outfit.variable}>
 			<body
 				className={cn(
 					"min-h-screen bg-background font-sans antialiased transition-colors duration-100",
-					fontSans.variable
+					fontSans.variable,
+					outfit.className
 				)}
 			>
 				<ThemeProvider
