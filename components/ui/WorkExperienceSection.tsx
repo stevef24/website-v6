@@ -107,7 +107,7 @@ const WorkExperienceSection = ({
 										visible: { opacity: 1, y: 0 },
 									}}
 								>
-									<StackIcon name={item} className="w-8 h-8" />
+									<StackIcon name={item} className="w-6 h-6" />
 								</motion.li>
 							))}
 						</motion.ul>
