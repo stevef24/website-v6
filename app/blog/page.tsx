@@ -99,7 +99,11 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
 											<CardContent className="p-0 flex">
 												<div className="relative w-1/3 min-h-[200px]">
 													<Image
-														src={image || "/blog-placeholder.jpg"}
+														src={
+															image
+																? `/images/${image}`
+																: "/blog-placeholder.jpg"
+														}
 														alt={title}
 														fill
 														className="object-cover"
