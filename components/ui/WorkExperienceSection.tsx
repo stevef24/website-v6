@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { MapPinIcon, CalendarIcon } from "lucide-react";
+import StackIcon from "tech-stack-icons";
 
 interface WorkExperienceSectionProps {
 	companyName: string;
@@ -82,19 +83,34 @@ const WorkExperienceSection = ({
 						<h4 className="text-sm font-semibold text-primary">
 							Technologies & Skills
 						</h4>
-						<ul
+						<motion.ul
 							className="flex flex-wrap gap-2"
 							role="list"
 							aria-label="Technologies and skills"
+							variants={{
+								hidden: {},
+								visible: {
+									transition: {
+										staggerChildren: 0.05,
+									},
+								},
+							}}
+							initial="hidden"
+							whileInView="visible"
+							viewport={{ once: true }}
 						>
 							{tech.map((item) => (
-								<li key={item}>
-									<span className="inline-flex items-center px-2 sm:px-3 py-1 rounded-full text-xs font-medium border border-primary/20 text-primary/80 hover:bg-primary/20 transition-colors">
-										{item}
-									</span>
-								</li>
+								<motion.li
+									key={item}
+									variants={{
+										hidden: { opacity: 0, y: 10 },
+										visible: { opacity: 1, y: 0 },
+									}}
+								>
+									<StackIcon name={item} className="w-8 h-8" />
+								</motion.li>
 							))}
-						</ul>
+						</motion.ul>
 					</div>
 				</div>
 			</div>

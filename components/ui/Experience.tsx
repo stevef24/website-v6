@@ -24,17 +24,25 @@ const workExperience: WorkExperience[] = [
 			"I enhance user experiences within the Mortgages team by implementing and maintaining scalable UI components. Through agile collaboration with cross-functional teams, I help bring innovative features to life while ensuring reusability and security. I've also led onboarding initiatives, hosted knowledge-sharing sessions, and established CI/CD pipelines, all aimed at improving team productivity and efficiency.",
 		location: "London",
 		tech: [
-			"Kubernetes",
-			"Docker",
-			"Next.js",
-			"React",
-			"Jest",
-			"Web IO",
-			"Cucumber",
-			"Recoil",
-			"Zustand",
-			"React Testing Libraries",
-			"AWS",
+			"aws",
+			"docker",
+			"figma",
+			"git",
+			"jest",
+			"jira",
+			"kubernetes",
+			"mongodb",
+			"nextjs2",
+			"nodejs",
+			"openai",
+			"playwright",
+			"prisma",
+			"reactjs",
+			"recoil",
+			"shadcnui",
+			"tailwindcss",
+			"typescript",
+			"zod",
 		],
 	},
 	{
@@ -46,12 +54,22 @@ const workExperience: WorkExperience[] = [
 			"At Northcoders, I gained hands-on experience in agile development while working with React, Node.js, and PostgreSQL. I honed my skills in building and maintaining front-end and back-end solutions, applying best practices in modern JavaScript frameworks and databases. This role provided me with the opportunity to work in a team-focused environment, where collaboration and peer learning were integral.",
 		location: "Remote",
 		tech: [
-			"React",
-			"Node.js",
-			"PostgreSQL",
-			"Jest",
-			"Jenkins",
-			"React Testing Library",
+			"css3",
+			"figma",
+			"framer",
+			"git",
+			"html5",
+			"jenkins",
+			"jest",
+			"js",
+			"nodejs",
+			"postgresql",
+			"postman",
+			"react testing library",
+			"reactjs",
+			"reactquery",
+			"reactrouter",
+			"tailwindcss",
 		],
 	},
 	{
@@ -60,9 +78,9 @@ const workExperience: WorkExperience[] = [
 		dateTo: "December 2022",
 		role: "Freelance Web Developer",
 		roleDescription:
-			"As a freelance developer, I created custom websites for small businesses, utilising Webflow, React, and vanilla JavaScript. This role strengthened my client management and project execution skills, delivering responsive, user-focused solutions. I used Trello for project coordination, ensuring smooth collaboration and timely delivery.",
+			"As a freelance developer, I created custom websites for small businesses, utilising Webflow / wordpress, React, and vanilla JavaScript. This role strengthened my client management and project execution skills, delivering responsive, user-focused solutions. I used Trello for project coordination, ensuring smooth collaboration and timely delivery.",
 		location: "Remote",
-		tech: ["JavaScript", "HTML", "CSS", "Webflow", "GSAP"],
+		tech: ["css3", "framer", "html5", "js", "wordpress"],
 	},
 	{
 		companyName: "Aviva Investors",
@@ -72,15 +90,11 @@ const workExperience: WorkExperience[] = [
 		roleDescription:
 			"In this data-driven role, I supported a £6 billion portfolio by providing in-depth analysis for strategic decisions. I streamlined data workflows using Python and Excel, significantly reducing reporting times. I also collaborated closely with sales teams and mentored junior analysts, refining my skills in data visualisation and client engagement.",
 		location: "London",
-		tech: ["Python", "Excel"],
+		tech: ["python"],
 	},
 ];
 
 const Experience = () => {
-	const [activeExperienceId, setActiveExperienceId] = useState<string | null>(
-		null
-	);
-	const [isClosing, setIsClosing] = useState(false);
 	const containerRef = useRef<HTMLDivElement>(null);
 
 	// Group experiences by year
@@ -93,41 +107,10 @@ const Experience = () => {
 		return acc;
 	}, {} as Record<string, typeof workExperience>);
 
-	const handleExperienceClick = (experienceId: string) => {
-		if (activeExperienceId === experienceId) {
-			setIsClosing(true);
-			// Add a small delay before actually changing the activeExperienceId
-			setTimeout(() => {
-				setActiveExperienceId(null);
-				setIsClosing(false);
-			}, 200); // Match this with your animation duration
-		} else {
-			setActiveExperienceId(experienceId);
-		}
-	};
-
-	useEffect(() => {
-		const handleOutsideClick = (e: MouseEvent) => {
-			if (
-				containerRef.current &&
-				!containerRef.current.contains(e.target as Node)
-			) {
-				setIsClosing(true);
-				setTimeout(() => {
-					setActiveExperienceId(null);
-					setIsClosing(false);
-				}, 200);
-			}
-		};
-
-		document.addEventListener("click", handleOutsideClick);
-		return () => document.removeEventListener("click", handleOutsideClick);
-	}, []);
-
 	return (
 		<section
 			ref={containerRef}
-			className="relative w-full max-w-4xl mx-auto"
+			className="relative w-full mx-auto"
 			aria-label="Work Experience Timeline"
 		>
 			<BlurFade>
