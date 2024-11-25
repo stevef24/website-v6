@@ -145,7 +145,7 @@ const Values = () => {
 					<div className="text-center space-y-4">
 						<Typography
 							variant={Variant.body}
-							className="text-muted-foreground leading-relaxed"
+							className="text-muted-foreground leading-relaxed text-justify"
 						>
 							These values are at the core of who I am—not just as a developer,
 							but as a person. They're qualities I look for in every team I

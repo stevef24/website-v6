@@ -5,6 +5,8 @@ import FlowDiagram from "../blog/FlowDiagram";
 import DecisionFlow from "../blog/FormComponent";
 import CompilerComparison from "../blog/CompilerComparison";
 import DecisionNode from "../blog/FormDecisionTree";
+import Sidenote from "../Sidenote";
+import Codeblock from "../Codeblock";
 
 const useMDXComponent = (code: string) => {
 	const fn = new Function(code);
@@ -21,15 +23,8 @@ const components = {
 	pre: ({ children }: { children: React.ReactNode }) => (
 		<pre className="bg-black p-4 rounded-lg overflow-x-auto">{children}</pre>
 	),
-	code: ({
-		children,
-		className,
-	}: {
-		children: React.ReactNode;
-		className?: string;
-	}) => {
-		return <code className="font-mono text-sm">{children}</code>;
-	},
+	Codeblock,
+	Sidenote,
 };
 
 interface MdxProps {

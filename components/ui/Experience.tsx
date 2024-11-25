@@ -73,7 +73,7 @@ const workExperience: WorkExperience[] = [
 		],
 	},
 	{
-		companyName: "Freelance Web Developer",
+		companyName: "Freelance",
 		dateFrom: "July 2022",
 		dateTo: "December 2022",
 		role: "Freelance Web Developer",

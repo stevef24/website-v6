@@ -225,11 +225,13 @@ Overall, `useActionState` provides a powerful tool for managing form submissions
 
 When using `useActionState`, there are several key considerations to keep in mind. First, proper error handling should be integrated within the action function to ensure users receive clear feedback when something goes wrong. Second, defining an appropriate initial state is crucial for the form to behave correctly from the outset. Lastly, while leveraging `useActionState` can improve performance, developers should be mindful of how frequently state updates are triggered, especially in more complex forms, to maintain optimal efficiency.
 
-### Important Note About `useActionState`
+<Sidenote type="note">
 
-> "When you wrap an action with useActionState, it adds the current form state as the first argument, making the submitted form data the second argument." - React documents
+"When you wrap an action with useActionState, it adds the current form state as the first argument, making the submitted form data the second argument." - React documents
 
 Simply put, `useActionState` takes the current form state as the first argument, making the form data the second argument.
+
+</Sidenote>
 
 ```jsx
 async function myAction(currentState, formData) {

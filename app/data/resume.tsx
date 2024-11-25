@@ -1,12 +1,11 @@
 import { Icons } from "@/components/ui/icons";
 import { CodeIcon, HomeIcon, NotebookIcon, PencilLine } from "lucide-react";
-import { GitHubLogoIcon, GlobeIcon } from "@radix-ui/react-icons";
 
 export const DATA = {
 	navbar: [
 		{ href: "/", icon: HomeIcon, label: "Home" },
 		{ href: "/blog", icon: NotebookIcon, label: "Blog" },
-		{ href: "#projects", icon: CodeIcon, label: "Projects" },
+		{ href: "/#projects", icon: CodeIcon, label: "Projects" },
 	],
 	contact: {
 		social: {

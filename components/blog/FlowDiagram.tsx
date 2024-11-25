@@ -223,7 +223,7 @@ const FlowDiagram: React.FC = () => {
 	const isClientFinalActive = currentStep >= 5;
 
 	return (
-		<div className="bg-black p-3 sm:p-4 rounded-xl w-full mx-auto">
+		<div className="bg-black p-3 sm:p-4 rounded-xl w-full mx-auto h-[750px]">
 			<div className="flex flex-col gap-3 sm:gap-4">
 				{/* Controls */}
 				<div className="flex justify-center gap-3 mb-2">
@@ -349,7 +349,7 @@ const FlowDiagram: React.FC = () => {
 				</div>
 
 				{/* Step Explanation Section */}
-				<div className="mt-2">
+				<div className="mt-2 min-h-[200px]">
 					<div
 						className={`
             p-3 rounded-xl border border-orange-500/20

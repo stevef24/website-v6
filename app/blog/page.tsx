@@ -12,6 +12,7 @@ import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { QueryPagination } from "@/components/ui/QueryPagination";
 import Link from "next/link";
+import Image from "next/image";
 
 const POSTS_PER_PAGE = 10;
 
@@ -48,16 +49,18 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
 			<motion.div variants={fadeIn} className="relative mb-10">
 				<div className="relative">
 					<h1 className="text-4xl font-black lg:text-5xl mb-6">
-						<span className="inline-block text-orange-500">Blog</span>
+						<span className="inline-block text-orange-500">
+							What I've Learned
+						</span>
 					</h1>
 					<p className="text-xl text-muted-foreground max-w-full">
-						Welcome to my blog! Here, I share my thoughts on code, design, and
-						life—everything I’m passionate about. For me, writing is a way to
-						learn, teach, and grow. If you spot any mistakes or have suggestions
-						on how I can explain things better, don’t hesitate to reach out.
-						This blog is as much about connecting and improving together as it
-						is about sharing ideas. Stay tuned, stay curious, and let’s dive
-						into the latest topics in tech!
+						Welcome to my blog/notes ! Here, I share my thoughts on code,
+						design, and life—everything I’m passionate about. For me, writing is
+						a way to learn, teach, and grow. If you spot any mistakes or have
+						suggestions on how I can explain things better, don’t hesitate to
+						reach out. This blog is as much about connecting and improving
+						together as it is about sharing ideas. Stay tuned, stay curious, and
+						let’s dive into the latest topics in tech!
 					</p>
 				</div>
 			</motion.div>
@@ -84,7 +87,7 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
 						aria-label="Blog posts"
 					>
 						{displayPosts.map(
-							({ date, title, slug, description, body }, index) => (
+							({ date, title, slug, description, image }, index) => (
 								<motion.li
 									key={slug}
 									initial={{ opacity: 0, y: 20 }}
@@ -92,52 +95,66 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
 									transition={{ delay: index * 0.1 }}
 								>
 									<Link href={`/${slug}`} aria-label={`Read article: ${title}`}>
-										<Card className="group hover:shadow-lg transition-all duration-300 overflow-hidden border-primary/10 hover:border-primary/20">
-											<CardContent className="p-6">
-												<div className="space-y-4">
-													<div className="flex items-center justify-between text-sm text-muted-foreground">
-														<div className="flex items-center gap-2">
-															<Calendar
-																className="h-4 w-4"
-																aria-hidden="true"
-															/>
-															<time dateTime={date}>
-																{new Date(date).toLocaleDateString()}
-															</time>
+										<Card className="group hover:shadow-lg transition-all duration-300 overflow-hidden border-0">
+											<CardContent className="p-0 flex">
+												<div className="relative w-1/3 min-h-[200px]">
+													<Image
+														src={image || "/blog-placeholder.jpg"}
+														alt={title}
+														fill
+														className="object-cover"
+														sizes="(max-width: 768px) 100vw, 33vw"
+													/>
+												</div>
+												<div className="flex-1 p-6">
+													<div className="space-y-4">
+														<div className="flex items-center justify-between text-sm text-muted-foreground">
+															<div className="flex items-center gap-2">
+																<Calendar
+																	className="h-4 w-4"
+																	aria-hidden="true"
+																/>
+																<time dateTime={date}>
+																	{new Date(date).toLocaleDateString()}
+																</time>
+															</div>
 														</div>
-													</div>
-													<div>
-														<h2 className="text-2xl font-bold tracking-tight mb-2 group-hover:text-primary transition-colors">
-															{title}
-														</h2>
-														<p className="text-muted-foreground line-clamp-2">
-															{description}
-														</p>
-													</div>
+														<div>
+															<h2 className="text-2xl font-bold tracking-tight mb-2 group-hover:text-primary transition-colors">
+																{title}
+															</h2>
+															<p className="text-muted-foreground line-clamp-2">
+																{description}
+															</p>
+														</div>
 
-													<div className="flex justify-between items-center">
-														<Button
-															variant="ghost"
-															className="group-hover:translate-x-1 transition-transform duration-300"
-														>
-															Read More{" "}
-															<ChevronRight
-																className="ml-2 h-4 w-4"
-																aria-hidden="true"
-															/>
-														</Button>
-														<div className="flex items-center gap-2 text-sm text-muted-foreground">
-															<BookOpen
-																className="h-4 w-4"
-																aria-hidden="true"
-															/>
-															<span>Article</span>
+														<div className="flex justify-between items-center">
+															<Button
+																variant="ghost"
+																className="group-hover:translate-x-1 transition-transform duration-300"
+															>
+																Read More{" "}
+																<ChevronRight
+																	className="ml-2 h-4 w-4"
+																	aria-hidden="true"
+																/>
+															</Button>
+															<div className="flex items-center gap-2 text-sm text-muted-foreground">
+																<BookOpen
+																	className="h-4 w-4"
+																	aria-hidden="true"
+																/>
+																<span>Article</span>
+															</div>
 														</div>
 													</div>
 												</div>
 											</CardContent>
 										</Card>
 									</Link>
+									{index < displayPosts.length - 1 && (
+										<Separator className="my-6" />
+									)}
 								</motion.li>
 							)
 						)}
