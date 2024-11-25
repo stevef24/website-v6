@@ -29,7 +29,7 @@ export default function Hero() {
 	};
 
 	return (
-		<div className="relative min-h-screen bg-background font-sans flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+		<div className="relative min-h-screen bg-background  flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
 			{/* Enhanced gradient effect */}
 			<div
 				className="absolute h-[30vh] w-[40vw] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/4 bg-gradient-to-r from-orange-500/30 to-purple-500/30 blur-[100px]"

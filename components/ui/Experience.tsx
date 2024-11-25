@@ -76,19 +76,6 @@ const workExperience: WorkExperience[] = [
 	},
 ];
 
-interface YearMarkerProps {
-	year: string;
-	className?: string;
-}
-
-const YearMarker = ({ year, className }: YearMarkerProps) => (
-	<div className="sticky top-0 z-10 -mx-4 sm:-mx-6 mb-4 bg-background/80 backdrop-blur-sm py-2">
-		<div className="px-4 sm:px-6">
-			<span className="text-sm font-medium text-muted-foreground">{year}</span>
-		</div>
-	</div>
-);
-
 const Experience = () => {
 	const [activeExperienceId, setActiveExperienceId] = useState<string | null>(
 		null
@@ -149,7 +136,6 @@ const Experience = () => {
 						.sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
 						.map(([year, experiences]) => (
 							<div key={year}>
-								<YearMarker year={year} />
 								<ul
 									className="space-y-3 sm:space-y-4"
 									role="list"
@@ -161,11 +147,6 @@ const Experience = () => {
 											<WorkExperienceSection
 												key={experienceId}
 												{...experience}
-												isActive={activeExperienceId === experienceId}
-												isClosing={
-													isClosing && activeExperienceId === experienceId
-												}
-												onSelect={() => handleExperienceClick(experienceId)}
 												index={index}
 											/>
 										);
