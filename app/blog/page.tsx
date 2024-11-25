@@ -96,8 +96,8 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
 								>
 									<Link href={`/${slug}`} aria-label={`Read article: ${title}`}>
 										<Card className="group hover:shadow-lg transition-all duration-300 overflow-hidden border-0">
-											<CardContent className="p-0 flex">
-												<div className="relative w-1/3 min-h-[200px]">
+											<CardContent className="p-0 flex flex-col md:flex-row">
+												<div className="relative aspect-video md:aspect-[4/3] w-full md:w-1/3">
 													<Image
 														src={
 															image
