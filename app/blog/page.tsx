@@ -95,7 +95,7 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
 									transition={{ delay: index * 0.1 }}
 								>
 									<Link
-										href={`/blog/${slug}`}
+										href={`/${slug}`}
 										aria-label={`Read blog post: ${title}`}
 									>
 										<Card className="group hover:shadow-lg transition-all duration-300 overflow-hidden border-0">
