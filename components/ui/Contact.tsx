@@ -47,7 +47,7 @@ const Contact = () => {
 					<div className="relative p-8 sm:p-12">
 						<div className="flex flex-col items-center text-center space-y-6">
 							<div className="space-y-2">
-								<h3 className="text-lg text-orange-500 font-bold">
+								<h3 className="text-xl text-orange-500 font-bold">
 									Want to connect?
 								</h3>
 							</div>

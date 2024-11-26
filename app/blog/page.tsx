@@ -94,7 +94,10 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
 									animate={{ opacity: 1, y: 0 }}
 									transition={{ delay: index * 0.1 }}
 								>
-									<Link href={`/${slug}`} aria-label={`Read article: ${title}`}>
+									<Link
+										href={`/blog/${slug}`}
+										aria-label={`Read blog post: ${title}`}
+									>
 										<Card className="group hover:shadow-lg transition-all duration-300 overflow-hidden border-0">
 											<CardContent className="p-0 flex flex-col md:flex-row">
 												<div className="relative aspect-video md:aspect-[4/3] w-full md:w-1/3">

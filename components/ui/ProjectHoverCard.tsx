@@ -136,7 +136,7 @@ export default function ProjectHoverCard({
 								className="group inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none rounded-md"
 								whileHover={{ scale: 1.05 }}
 								whileTap={{ scale: 0.95 }}
-								aria-label={`View ${title} GitHub repository (opens in new tab)`}
+								aria-label={`View ${title} source code on GitHub`}
 							>
 								<GitHubLogoIcon
 									className="mr-1.5 h-[18px] w-[18px] translate-y-[0.5px] transition-transform group-hover:scale-110"
@@ -153,7 +153,7 @@ export default function ProjectHoverCard({
 								className="group inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none rounded-md"
 								whileHover={{ scale: 1.05 }}
 								whileTap={{ scale: 0.95 }}
-								aria-label={`View ${title} live demo (opens in new tab)`}
+								aria-label={`Visit live demo of ${title}`}
 							>
 								<GlobeIcon
 									className="mr-1.5 h-[18px] w-[18px] translate-y-[0.5px] transition-transform group-hover:scale-110"
