@@ -85,12 +85,10 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<main>
-						<TooltipProvider delayDuration={0}>
-							{children}
-							<Navbar />
-						</TooltipProvider>
-					</main>
+					<TooltipProvider delayDuration={0}>
+						{children}
+						<Navbar />
+					</TooltipProvider>
 				</ThemeProvider>
 				<Analytics />
 			</body>
