@@ -95,7 +95,6 @@ const Projects = () => {
 			role="region"
 			aria-label="Projects carousel"
 			tabIndex={0}
-			id="projects"
 		>
 			<div
 				className="overflow-hidden rounded-xl"
