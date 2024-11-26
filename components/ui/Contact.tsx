@@ -66,6 +66,7 @@ const Contact = () => {
 										)}`}
 										icon={EnvelopeOpenIcon}
 										label="Send an email"
+										aria-label="Send an email"
 									>
 										Send Email
 									</ContactLink>
@@ -74,6 +75,7 @@ const Contact = () => {
 										href="https://www.linkedin.com/in/stavfernandes24/"
 										icon={LinkedInLogoIcon}
 										label="Connect on LinkedIn"
+										aria-label="Connect on LinkedIn"
 									>
 										LinkedIn
 									</ContactLink>

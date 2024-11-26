@@ -19,6 +19,7 @@ export const ModeToggle = React.forwardRef<
 			className="px-4 size-8"
 			onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
 			{...props}
+			aria-label="Toggle theme"
 		>
 			<MoonIcon className="hidden size-8 text-neutral-800 dark:block dark:text-neutral-200" />
 			<SunIcon className="size-8 text-neutral-800 dark:hidden dark:text-neutral-200" />
