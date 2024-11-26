@@ -10,8 +10,8 @@ export default function Hero() {
 		visible: {
 			opacity: 1,
 			transition: {
-				staggerChildren: 0.2,
-				delayChildren: 0.3,
+				staggerChildren: 0.1,
+				delayChildren: 0.2,
 			},
 		},
 	};
@@ -22,7 +22,7 @@ export default function Hero() {
 			opacity: 1,
 			y: 0,
 			transition: {
-				duration: 0.8,
+				duration: 0.5,
 				ease: "easeOut",
 			},
 		},
@@ -32,7 +32,7 @@ export default function Hero() {
 		<div className="relative min-h-screen bg-background  flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
 			{/* Enhanced gradient effect */}
 			<div
-				className="absolute h-[30vh] w-[40vw] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/4 bg-gradient-to-r from-orange-500/30 to-purple-500/30 blur-[100px]"
+				className="absolute h-[30vh] w-[40vw] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/4 "
 				aria-hidden="true"
 			/>
 
