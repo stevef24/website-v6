@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/ui/navbar";
 import { Outfit } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
 const fontSans = FontSans({
 	subsets: ["latin"],
@@ -21,7 +22,47 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
 	title: "Stav Fernandes - Fullstack Software Engineer",
-	description: "Personal portfolio website",
+	description:
+		"Experienced Fullstack Software Engineer specializing in React, TypeScript, and modern web technologies. View my portfolio, projects, and technical expertise.",
+	keywords: [
+		"Stav Fernandes",
+		"Software Engineer",
+		"Fullstack Developer",
+		"React Developer",
+		"TypeScript",
+		"Web Development",
+		"Portfolio",
+	],
+	authors: [{ name: "Stav Fernandes" }],
+	creator: "Stav Fernandes",
+	publisher: "Stav Fernandes",
+	robots: "index, follow",
+	openGraph: {
+		type: "website",
+		locale: "en_GB",
+		url: "https://stavfernandes.dev",
+		title: "Stav Fernandes - Fullstack Software Engineer",
+		description:
+			"Experienced Fullstack Software Engineer specialising in React, TypeScript, and modern web technologies.",
+		siteName: "Stav Fernandes Portfolio",
+		images: [
+			{
+				url: "/favicon.ico",
+				width: 1200,
+				height: 630,
+				alt: "Stav Fernandes - Portfolio",
+			},
+		],
+	},
+	viewport: {
+		width: "device-width",
+		initialScale: 1,
+		maximumScale: 1,
+	},
+	icons: {
+		icon: "/favicon.ico",
+		apple: "/apple-touch-icon.png",
+	},
 };
 
 export default function RootLayout({
@@ -49,6 +90,7 @@ export default function RootLayout({
 						<Navbar />
 					</TooltipProvider>
 				</ThemeProvider>
+				<Analytics />
 			</body>
 		</html>
 	);
