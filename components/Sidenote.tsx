@@ -39,13 +39,16 @@ const Sidenote = ({ type, children }: TestProps) => {
 
 	return (
 		<div
-			className={clsx("max-w-[768px] flex-1 p-4 rounded-lg relative mx-4", {
-				"bg-orange-500/5 border border-orange-500/50": type === "tip",
-				"bg-red-500/5 border border-red-500": type === "warning",
-				"bg-green-500/5 border border-green-500": type === "success",
-				"bg-blue-500/5 border border-blue-500": type === "note",
-				"bg-purple-500/5 border border-purple-500": type === "thinking",
-			})}
+			className={clsx(
+				"max-w-[768px] flex-1 p-4 rounded-lg relative mt-10  mx-4",
+				{
+					"bg-orange-500/5 border border-orange-500/50": type === "tip",
+					"bg-red-500/5 border border-red-500": type === "warning",
+					"bg-green-500/5 border border-green-500": type === "success",
+					"bg-blue-500/5 border border-blue-500": type === "note",
+					"bg-purple-500/5 border border-purple-500": type === "thinking",
+				}
+			)}
 		>
 			<h3
 				className={clsx("text-lg font-bold", {

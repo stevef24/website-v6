@@ -11,9 +11,9 @@ As we approach the release of React 19, we are also approaching the introduction
 
 ### What is the React Compiler and Why Was It Introduced?
 
-Traditionally, optimising React code required developers to manually apply techniques like `useMemo`, `useCallback`, and `React.memo`. For a deep dive, I would recommend checking the React documentation; however, I will provide a quick overview in the later sections.
+Traditionally, optimising React code required developers to manually apply techniques like <Codeblock>useMemo</Codeblock>, <Codeblock>useCallback</Codeblock>, and <Codeblock>React.memo</Codeblock>. For a deep dive, I would recommend checking the React documentation; however, I will provide a quick overview in the later sections.
 
-React 19 introduces the React Compiler, which automates code optimisation, allowing developers to write clean, readable code while ensuring efficiency. For beginners, this means you don't need to learn when and how to apply `React.memo` or `useMemo`, it’s all handled for you, making it simpler to start building performant applications. The compiler integrates into the build process by working alongside Babel, analysing components, and applying optimisations like memoisation and caching. This compiler has been used in production at Meta and aims to simplify development, freeing developers to focus on creating features instead of manual performance tuning.
+React 19 introduces the React Compiler, which automates code optimisation, allowing developers to write clean, readable code while ensuring efficiency. For beginners, this means you don't need to learn when and how to apply <Codeblock>React.memo</Codeblock> or <Codeblock>useMemo</Codeblock>, it's all handled for you, making it simpler to start building performant applications. The compiler integrates into the build process by working alongside Babel, analysing components, and applying optimisations like memoisation and caching. This compiler has been used in production at Meta and aims to simplify development, freeing developers to focus on creating features instead of manual performance tuning.
 
 ### How Does the React Compiler Work?
 
@@ -25,17 +25,17 @@ _Babel is a JavaScript compiler that helps convert modern JavaScript, including 
 
 To enhance performance, developers employed various techniques to prevent unnecessary re-renders:
 
-- **React.memo**: Wrapped functional components to memoise them, ensuring they re-rendered only when their props changed. For example, in a typical app, you might need to wrap a component like this:
+- **<Codeblock>React.memo</Codeblock>**: Wrapped functional components to memoise them, ensuring they re-rendered only when their props changed. For example, in a typical app, you might need to wrap a component like this:
   ```jsx
   const MemoizedComponent = React.memo(function MyComponent({ value }) {
   	return <div>{value}</div>;
   });
   ```
-- **useMemo**: Memoised the results of computations to avoid recalculating them on every render. This required adding boilerplate to ensure computational efficiency:
+- **<Codeblock>useMemo</Codeblock>**: Memoised the results of computations to avoid recalculating them on every render. This required adding boilerplate to ensure computational efficiency:
   ```jsx
   const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
   ```
-- **useCallback**: Memoised functions to prevent their recreation on each render. This was necessary when passing functions as props to prevent unnecessary re-renders:
+- **<Codeblock>useCallback</Codeblock>**: Memoised functions to prevent their recreation on each render. This was necessary when passing functions as props to prevent unnecessary re-renders:
   ```jsx
   const handleClick = useCallback(() => {
   	console.log("Button clicked");
@@ -46,7 +46,7 @@ While effective, this manual optimisation required a deep understanding of React
 
 ### The New Paradigm: Automatic Optimisation with the React 19 Compiler
 
-React 19 introduces a compiler that automates many optimisation tasks previously handled manually. This compiler operates during the build process, working alongside Babel to analyse components and hooks. It automatically applies memoisation and caching strategies, effectively replacing the need for manual implementations of `React.memo`, `useMemo`, and `useCallback`.
+React 19 introduces a compiler that automates many optimisation tasks previously handled manually. This compiler operates during the build process, working alongside Babel to analyse components and hooks. It automatically applies memoisation and caching strategies, effectively replacing the need for manual implementations of <Codeblock>React.memo</Codeblock>, <Codeblock>useMemo</Codeblock>, and <Codeblock>useCallback</Codeblock>.
 
 Think of the React Compiler as a quality control inspector for your app's data. It makes sure that once your data is set, it doesn't change unexpectedly, like setting a rule that your grocery list can't be changed once you've written it down, to keep things orderly. This concept is called immutability. In React, immutability means data shouldn't be directly modified, which helps keep app behaviour predictable, much like keeping your grocery list consistent helps prevent forgetting anything. By maintaining immutability, React can better determine when to update parts of the interface, improving efficiency and reducing bugs. Developers can also configure the compiler to decide which parts of the code get this quality check. After the build process, the compiler produces optimised JavaScript code that runs more smoothly in the browser.
 
@@ -55,7 +55,7 @@ For those who like to visualise things, I've created an animated diagram to show
 <CompilerComparison />
 ### Benefits of Using the React Compiler
 
-- **Automatic Optimisations**: The React Compiler applies memoisation and caching automatically, eliminating the need for `React.memo`, `useMemo`, or `useCallback`. For example, the compiler analyses dependencies and ensures that unchanged values are reused across renders, effectively implementing memoisation. This reduces boilerplate and keeps the codebase cleaner while ensuring efficient performance.
+- **Automatic Optimisations**: The React Compiler applies memoisation and caching automatically, eliminating the need for <Codeblock>React.memo</Codeblock>, <Codeblock>useMemo</Codeblock>, or <Codeblock>useCallback</Codeblock>. For example, the compiler analyses dependencies and ensures that unchanged values are reused across renders, effectively implementing memoisation. This reduces boilerplate and keeps the codebase cleaner while ensuring efficient performance.
 
 **Code Example - Before and After React Compiler**:
 
@@ -99,9 +99,9 @@ function DataList({ items }) {
 }
 ```
 
-With the React Compiler, there's no need to manually apply `useMemo` or `useCallback` to optimise performance. These optimisations are handled automatically, resulting in cleaner, more maintainable code.
+With the React Compiler, there's no need to manually apply <Codeblock>useMemo</Codeblock> or <Codeblock>useCallback</Codeblock> to optimise performance. These optimisations are handled automatically, resulting in cleaner, more maintainable code.
 
-- **Enhanced Developer Experience**: By automating tedious tasks, such as manually wrapping components with `React.memo` or adding `useCallback` to prevent unnecessary re-renders, the React Compiler allows developers to focus on building features rather than managing low-level optimisations, reducing cognitive overhead.
+- **Enhanced Developer Experience**: By automating tedious tasks, such as manually wrapping components with <Codeblock>React.memo</Codeblock> or adding <Codeblock>useCallback</Codeblock> to prevent unnecessary re-renders, the React Compiler allows developers to focus on building features rather than managing low-level optimisations, reducing cognitive overhead.
 - **Build-Time Enhancements**: Optimisations are applied during the build process, resulting in more efficient runtime performance and reducing the overhead associated with manual optimisations.
 - **Enforcement of Best Practices**: The compiler enforces immutability and other React best practices, leading to more predictable and stable applications.
 - **Simplified Development Process**: By handling optimisations automatically, the compiler allows developers to focus more on building features rather than managing performance, streamlining the development workflow.
