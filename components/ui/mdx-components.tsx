@@ -21,7 +21,18 @@ const components = {
 	CompilerComparison,
 	DecisionNode,
 	pre: ({ children }: { children: React.ReactNode }) => (
-		<pre className="bg-black p-4 rounded-lg overflow-x-auto">{children}</pre>
+		<div className="relative">
+			<pre className=" border border-dashed border-orange-500/50 bg-orange-950/5 p-4 rounded-lg overflow-x-auto">
+				{children}
+			</pre>
+			<Image
+				src={"/images/code.png"}
+				alt={"yes"}
+				width={84}
+				height={84}
+				className="absolute -top-[80px] -right-0"
+			/>
+		</div>
 	),
 	Codeblock,
 	Sidenote,
