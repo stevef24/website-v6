@@ -17,7 +17,6 @@ const Projects = () => {
 	const isAtStart = currentIndex === 0;
 	const isAtEnd = currentIndex >= projectsCount - cardsPerView;
 
-	// Handle responsive layout
 	useEffect(() => {
 		const handleResize = () => {
 			if (window.innerWidth < 640) {
@@ -35,7 +34,6 @@ const Projects = () => {
 		return () => window.removeEventListener("resize", debouncedResize);
 	}, []);
 
-	// Debounce function for resize handler
 	function debounce(func: Function, wait: number) {
 		let timeout: NodeJS.Timeout;
 		return function executedFunction(...args: any[]) {
@@ -183,7 +181,6 @@ const Projects = () => {
 				</Button>
 			</div>
 
-			{/* Pagination Indicators - Only visible on mobile/tablet */}
 			<div
 				className={cn(
 					"absolute -bottom-8 left-1/2 -translate-x-1/2 flex gap-2 mt-10",
