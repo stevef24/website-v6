@@ -7,6 +7,7 @@ import CompilerComparison from "../blog/CompilerComparison";
 import DecisionNode from "../blog/FormDecisionTree";
 import Sidenote from "../Sidenote";
 import Codeblock from "../Codeblock";
+import YesNo from "./YesNo";
 
 const useMDXComponent = (code: string) => {
 	const fn = new Function(code);
@@ -36,6 +37,7 @@ const components = {
 	),
 	Codeblock,
 	Sidenote,
+	YesNo,
 };
 
 interface MdxProps {
